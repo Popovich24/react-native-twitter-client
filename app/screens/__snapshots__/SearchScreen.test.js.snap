@@ -1,0 +1,178 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`search screen should render activity indicator correctly 1`] = `
+<Component
+  style={
+    Object {
+      "backgroundColor": "#FFFF",
+      "flex": 1,
+    }
+  }
+>
+  <SearchForm
+    animated={true}
+    hasSearched={false}
+    onReset={[Function]}
+    onSearchInputTextChange={[Function]}
+    onSubmit={[Function]}
+    searchValue=""
+  />
+  <Component
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#fff",
+        "flex": 1,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <ActivityIndicator
+      animating={true}
+      color="#999999"
+      hidesWhenStopped={true}
+      size="small"
+    />
+  </Component>
+</Component>
+`;
+
+exports[`search screen should render trends correctly 1`] = `
+<Component
+  style={
+    Object {
+      "backgroundColor": "#FFFF",
+      "flex": 1,
+    }
+  }
+>
+  <SearchForm
+    animated={true}
+    hasSearched={false}
+    onReset={[Function]}
+    onSearchInputTextChange={[Function]}
+    onSubmit={[Function]}
+    searchValue=""
+  />
+  <Fade
+    onDoneFadingOut={[Function]}
+    visible={true}
+  >
+    <Component>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontSize": 20,
+            "fontWeight": "bold",
+            "marginBottom": 15,
+            "marginLeft": 10,
+          }
+        }
+      >
+        Trends for you
+      </Text>
+      <Component
+        style={
+          Object {
+            "backgroundColor": "#dddddd",
+            "height": 1,
+          }
+        }
+      />
+      <TrendList
+        onItemPress={[Function]}
+        trends={
+          Array [
+            Object {
+              "name": "Sofía Herrera",
+              "promoted_content": null,
+              "query": "%22Sof%C3%ADa+Herrera%22",
+              "tweet_volume": 11111,
+              "url": "http://twitter.com/search?q=%22Sof%C3%ADa+Herrera%22",
+            },
+            Object {
+              "name": "Sofía Herrera",
+              "promoted_content": null,
+              "query": "%22Sof%C3%ADa+Herrera%22",
+              "tweet_volume": 11111,
+              "url": "http://twitter.com/search?q=%22Sof%C3%ADa+Herrera%22",
+            },
+            Object {
+              "name": "Sofía Herrera",
+              "promoted_content": null,
+              "query": "%22Sof%C3%ADa+Herrera%22",
+              "tweet_volume": 11111,
+              "url": "http://twitter.com/search?q=%22Sof%C3%ADa+Herrera%22",
+            },
+            Object {
+              "name": "Sofía Herrera",
+              "promoted_content": null,
+              "query": "%22Sof%C3%ADa+Herrera%22",
+              "tweet_volume": 11111,
+              "url": "http://twitter.com/search?q=%22Sof%C3%ADa+Herrera%22",
+            },
+          ]
+        }
+      />
+    </Component>
+  </Fade>
+</Component>
+`;
+
+exports[`search screen should render trends correctly when wrapped with redux 1`] = `
+<SearchScreen
+  hasSearched={false}
+  loadingMoreSearchResults={false}
+  loadingSearch={false}
+  loadingTrends={false}
+  navigation={
+    Object {
+      "state": Object {
+        "params": Object {
+          "data": "1",
+        },
+      },
+    }
+  }
+  requestSearchForPost={[Function]}
+  requestSearchMorePost={[Function]}
+  requestTrendsLoad={[Function]}
+  resetPostSearch={[Function]}
+  resetTrends={[Function]}
+  searchKeyword=""
+  searchResult={Array []}
+  store={
+    Object {
+      "@@observable": [Function],
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+  storeSubscription={
+    Subscription {
+      "listeners": Object {
+        "clear": [Function],
+        "get": [Function],
+        "notify": [Function],
+        "subscribe": [Function],
+      },
+      "onStateChange": [Function],
+      "parentSub": undefined,
+      "store": Object {
+        "@@observable": [Function],
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "unsubscribe": [Function],
+    }
+  }
+  trends={Array []}
+/>
+`;

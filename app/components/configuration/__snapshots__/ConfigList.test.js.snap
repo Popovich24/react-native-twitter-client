@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`config list should render correctly 1`] = `
+<Component>
+  <Component
+    style={
+      Object {
+        "backgroundColor": "#627B97",
+        "height": 50,
+        "justifyContent": "center",
+        "marginBottom": 3,
+        "marginTop": 1,
+        "paddingLeft": 10,
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 16,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Silence notifications from ... 
+    </Text>
+  </Component>
+  <ConfigItem
+    onChange={[Function]}
+    title="People who have not verified the account"
+    value={false}
+  />
+  <ConfigItem
+    onChange={[Function]}
+    title="People who do not follow"
+    value={false}
+  />
+  <ConfigItem
+    onChange={[Function]}
+    title="People who have default profile information"
+    value={false}
+  />
+  <ConfigItem
+    onChange={[Function]}
+    title="Tweets that contain a link"
+    value={false}
+  />
+  <ConfigItem
+    onChange={[Function]}
+    title="Tweets that have text truncated"
+    value={false}
+  />
+</Component>
+`;

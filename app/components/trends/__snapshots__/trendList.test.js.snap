@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`trend list should render correctly 1`] = `
+<ScrollView>
+  <Trend
+    index={0}
+    key="0"
+    onPress={[Function]}
+    trend={
+      Object {
+        "name": "Sofía Herrera",
+        "promoted_content": null,
+        "query": "%22Sof%C3%ADa+Herrera%22",
+        "tweet_volume": 11111,
+        "url": "http://twitter.com/search?q=%22Sof%C3%ADa+Herrera%22",
+      }
+    }
+  />
+  <Trend
+    index={1}
+    key="1"
+    onPress={[Function]}
+    trend={
+      Object {
+        "name": "Sofía Herrera",
+        "promoted_content": null,
+        "query": "%22Sof%C3%ADa+Herrera%22",
+        "tweet_volume": 11111,
+        "url": "http://twitter.com/search?q=%22Sof%C3%ADa+Herrera%22",
+      }
+    }
+  />
+  <Trend
+    index={2}
+    key="2"
+    onPress={[Function]}
+    trend={
+      Object {
+        "name": "Sofía Herrera",
+        "promoted_content": null,
+        "query": "%22Sof%C3%ADa+Herrera%22",
+        "tweet_volume": 11111,
+        "url": "http://twitter.com/search?q=%22Sof%C3%ADa+Herrera%22",
+      }
+    }
+  />
+</ScrollView>
+`;
