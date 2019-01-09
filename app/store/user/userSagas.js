@@ -66,7 +66,7 @@ function* changeLoggedInUserProfilePicture(){
               'Content-Type': 'multipart/form-data'
     }),
   }
-  yield call(fetch, url , request);
+  yield call(fetch, url, request);
 }
 
 function* watchChangeLoggedInUserProfilePicture(){
