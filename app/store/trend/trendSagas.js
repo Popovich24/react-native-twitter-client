@@ -14,7 +14,7 @@ export function* loadTrends(){
   const url = `http://${serverIP}/trends?id=23424747`;
   try {
     const response = yield call(fetch, url);
-    const data = yield call([response, "json"]);
+    const data = yield call([response, 'json']);
     yield put(successTrendsLoad(data[0].trends));
   } catch(er) {
     yield put(failureTrendsLoad(er));

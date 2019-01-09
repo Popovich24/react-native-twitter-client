@@ -5,7 +5,7 @@ import {
   getSearchKeyword,
   getLastSearchResultId,
   getShowPostId} from './postSelector'
-import {getUserProfileId} from './../user/userSelector'
+import { getUserProfileId, getLoggedInUserProfileId} from './../user/userSelector'
 import { getConfiguration } from './../configuration/configurationSelector'
 
 import {
@@ -22,15 +22,19 @@ import {
   failureSearchMorePost,
   failurePostShow,
   failureUserProfileLoadPost,
+  requestLoggedInUserProfileLoadPost,
+  successLoggedInUserProfileLoadPost,
+  failureLoggedInUserProfileLoadPost,
   REQUEST_POST_LOAD,
   REQUEST_POST_LOAD_MORE,
   REQUEST_POST_SEARCH,
   REQUEST_POST_SEARCH_MORE,
   REQUEST_POST_SHOW,
-  REQUEST_USER_PROFILE_LOAD_POST
+  REQUEST_USER_PROFILE_LOAD_POST,
+  REQUEST_LOGGED_IN_USER_PROFILE_LOAD_POST,
 } from "./postActions"
 
-import {SUCCESS_USER_PROFILE} from './../user/userActions'
+import {SUCCESS_USER_PROFILE, SUCCESS_LOGGED_IN_USER_PROFILE} from './../user/userActions'
 
 export const serverIP = '10.160.11.56:8080';
 export const timelineCount = 50;
@@ -150,6 +154,32 @@ function* watchUserProfileLoaded() {
   yield takeLatest(SUCCESS_USER_PROFILE, onUserProfileLoaded);
 }
 
+export function* loadLoggedInUserProfileTimeline() {
+  try {
+    const id = yield select(getLoggedInUserProfileId);
+    const url = `http://${serverIP}/user_timeline?user_id=${id}`;
+    const response = yield call(fetch,url);
+    const data = yield call([response, 'json']);
+    yield put(successLoggedInUserProfileLoadPost(data));
+  } catch (er) {
+    console.log(er);
+    yield put(failureLoggedInUserProfileLoadPost(er));
+  }
+}
+
+function* watchLoadLoggedInUserProfileTimeline() {
+  yield takeLatest(REQUEST_LOGGED_IN_USER_PROFILE_LOAD_POST, loadLoggedInUserProfileTimeline);
+}
+
+function* onLoggedInUserProfileLoaded() {
+  yield put(requestLoggedInUserProfileLoadPost());
+}
+
+function* watchLoggedInUserProfileLoaded() {
+  yield takeLatest(SUCCESS_LOGGED_IN_USER_PROFILE, onLoggedInUserProfileLoaded);
+}
+
+
 export default function* postSagas() {
   yield all([
     watchLoadTimeline(),
@@ -159,6 +189,8 @@ export default function* postSagas() {
     watchShowPost(),
     watchLoadUserProfileTimeline(),
     watchUserProfileLoaded(),
+    watchLoadLoggedInUserProfileTimeline(),
+    watchLoggedInUserProfileLoaded(),
   ])
 }
 

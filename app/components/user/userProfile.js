@@ -1,67 +1,66 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   StyleSheet,
+  ScrollView,
   View,
   Text,
-  Image,
   TouchableHighlight,
-  Dimensions,
 } from 'react-native';
+
+import PostList from './../post/postList'
+import UserProfileHeadline from './userProfileHeadline'
 
 const UserProfile = (props) => {
   return (
-    <View style={styles.container}>
-      <Image
-        source={{uri: props.user.profile_banner_url}}
-        style={styles.banner}
+    <ScrollView styles={styles.userContainer}>
+      <UserProfileHeadline
+        onProfilePicPress={props.onProfilePicPress}
+        user={props.user}
+        styles={styles.userProfile}
+        navigation={props.navigation}
       />
-      <View style={[ styles.row, styles.horizontalCentered ]}>
-        <Image
-          source={{uri: props.user.profile_image_url_https}}
-          style={styles.profilePic}
+      <View style={styles.separator} />
+      {props.data &&
+        <PostList
+          style={styles.postList}
+          navigation={props.navigation}
+          data={props.data}
+          refreshing={false}
+          onRefresh={() => {}}
+          onEndReached={() => {}}
         />
-        <View style={styles.userName}>
-          <Text style={styles.userNameText}> {props.user.name} </Text>
+      }
+      {(!props.data || props.data.length === 0) &&
+        <View style={styles.textBanner}>
+          <Text>No tweets available</Text>
         </View>
-      </View>
-    </View>
+      }
+    </ScrollView>
   );
 }
 
 export default UserProfile
 
 const styles = StyleSheet.create({
-  banner:{
-    resizeMode: 'contain',
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height / 4.5,
-  },
-
-  container: {
+  userContainer: {
+    flex: 1,
+    backgroundColor: 'white',
+    justifyContent: 'flex-start',
     flexDirection: 'column',
   },
-
-  userName: {
-    height: 50,
-    alignSelf: 'center',
+  textBanner: {
     justifyContent: 'center',
-  },
-
-  userNameText: {
-    fontSize: 16,
-  },
-  horizontalCentered: {
-    justifyContent: 'center'
-  },
-  profilePic: {
-    resizeMode: 'contain',
+    alignItems: 'center',
     alignSelf: 'center',
-    height: 50,
-    width: 50,
-    borderRadius: 25,
   },
-
-  row:{
-    flexDirection: 'row',
+  separator: {
+    height: 1,
+    backgroundColor: '#dddddd'
+  },
+  userProfile: {
+    marginBottom: 5,
+  },
+  postList: {
+    marginTop: 5,
   },
 });

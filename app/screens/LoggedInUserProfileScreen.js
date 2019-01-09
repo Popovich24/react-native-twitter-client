@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 
 import {connect} from 'react-redux';
-import {requestUserProfile} from '../store/user/userActions'
+import {requestLoggedInUserProfile} from '../store/user/userActions'
 import UserProfile from './../components/user/userProfile'
 import PostList from './../components/post/postList'
 
@@ -20,19 +20,14 @@ export class UserProfileScreen extends Component {
 
   constructor(props) {
     super(props);
-
-    this.state = {
-      userId: -1,
-    }
   }
 
   componentDidMount = () => {
-    const userId = this.props.navigation.getParam('userId', 'NO-ID');
-    this.setState({
-      userId: userId,
-    });
+    this.props.requestLoggedInUserProfile();
+  }
 
-    this.props.requestUserProfile(userId);
+  handleOnProfilePicPress = () =>{
+    this.props.navigation.navigate('Camera');
   }
 
   render = () => {
@@ -46,7 +41,7 @@ export class UserProfileScreen extends Component {
        {!this.props.isLoadingUserProfile && !this.props.isLoadingUserProfilePost &&
          <View style={styles.userContainer}>
            <UserProfile
-             onProfilePicPress={() => {}}
+             onProfilePicPress={this.handleOnProfilePicPress}
              user={this.props.user}
              navigation={this.props.navigation}
              data={this.props.userProfilePost}
@@ -63,18 +58,22 @@ export class UserProfileScreen extends Component {
 
 }
 
+UserProfileScreen.navigationOptions = {
+  header: null
+};
+
 function mapStateToProps(state, props) {
     return {
-      isLoadingUserProfile: state.UserReducer.isLoadingUserProfile,
-      user: state.UserReducer.user,
+      isLoadingUserProfile: state.UserReducer.isLoadingLoggedInUserProfile,
+      user: state.UserReducer.loggedInUser,
 
-      userProfilePost: state.PostReducer.userProfilePost,
-      isLoadingUserProfilePost: state.PostReducer.isLoadingUserProfilePost,
+      userProfilePost: state.PostReducer.loggedInUserProfilePost,
+      isLoadingUserProfilePost: state.PostReducer.isLoadingLoggedInUserProfilePost,
     }
 }
 
 const mapDispatchToProps = {
-  requestUserProfile: (userId) => requestUserProfile(userId),
+  requestLoggedInUserProfile: () => requestLoggedInUserProfile(),
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfileScreen);
@@ -83,7 +82,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
-    justifyContent: 'space-around',
+    justifyContent: 'flex-start',
     flexDirection: 'column',
   },
   activityIndicatorContainer:{

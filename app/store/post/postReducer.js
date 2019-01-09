@@ -17,7 +17,10 @@ import {
   RESET_POST_SEARCH,
   REQUEST_USER_PROFILE_LOAD_POST,
   SUCCESS_USER_PROFILE_LOAD_POST,
-  FAILURE_USER_PROFILE_LOAD_POST
+  FAILURE_USER_PROFILE_LOAD_POST,
+  REQUEST_LOGGED_IN_USER_PROFILE_LOAD_POST,
+  SUCCESS_LOGGED_IN_USER_PROFILE_LOAD_POST,
+  FAILURE_LOGGED_IN_USER_PROFILE_LOAD_POST,
 } from './postActions'
 
 export let postState = {
@@ -37,6 +40,9 @@ export let postState = {
 
   userProfilePost: [],
   isLoadingUserProfilePost: false,
+
+  loggedInUserProfilePost: [],
+  isLoadingLoggedInUserProfilePost: false,
 
   failureError: '',
   hasFailed: false,
@@ -108,6 +114,16 @@ const PostReducer = (state = postState, action) => {
       return state;
     case FAILURE_USER_PROFILE_LOAD_POST:
       state = Object.assign({}, state, {isLoadingUserProfilePost: false, hasFailed: true, errorDetail: action.errorDetail});
+      return state;
+
+    case REQUEST_LOGGED_IN_USER_PROFILE_LOAD_POST:
+      state = Object.assign({}, state, {isLoadingLoggedInUserProfilePost: true, hasFailed: false });
+      return state;
+    case SUCCESS_LOGGED_IN_USER_PROFILE_LOAD_POST:
+      state = Object.assign({}, state, {isLoadingLoggedInUserProfilePost: false, loggedInUserProfilePost: action.data});
+      return state;
+    case FAILURE_LOGGED_IN_USER_PROFILE_LOAD_POST:
+      state = Object.assign({}, state, {isLoadingLoggedInUserProfilePost: false, hasFailed: true, errorDetail: action.errorDetail});
       return state;
 
     default:

@@ -16,6 +16,9 @@ import SearchScreen from '../screens/SearchScreen'
 import ConfigScreen from '../screens/ConfigScreen'
 import PostScreen from '../screens/PostScreen'
 import UserProfileScreen from '../screens/UserProfileScreen'
+import LoggedInUserProfileScreen from '../screens/LoggedInUserProfileScreen'
+import CameraScreen from '../screens/CameraScreen'
+
 
 const middleware = createReactNavigationReduxMiddleware(
   'root',
@@ -58,11 +61,29 @@ searchStack.navigationOptions = ({ navigation }) => {
   };
 };
 
+const loggedInUserProfileStack = createStackNavigator({
+  LoggedInUserProfile:  LoggedInUserProfileScreen,
+  Post:  PostScreen,
+  Camera: CameraScreen,
+});
+
+loggedInUserProfileStack.navigationOptions = ({ navigation }) => {
+  let tabBarVisible = true;
+  if (navigation.state.index > 0) {
+    tabBarVisible = false;
+  }
+
+  return {
+    tabBarVisible,
+  };
+};
+
 const RootNavigator = createMaterialTopTabNavigator({
 
   Home: timelineStack,
   Search: searchStack,
   Config: { screen: ConfigScreen},
+  LoggedInUserProfile: loggedInUserProfileStack,
 
 },{
   navigationOptions: ({ navigation }) => ({
@@ -76,6 +97,10 @@ const RootNavigator = createMaterialTopTabNavigator({
         }
         case "Config": {
           iconName = "ios-cog";
+          break;
+        }
+        case 'LoggedInUserProfile': {
+          iconName = "ios-person";
           break;
         }
         default: {

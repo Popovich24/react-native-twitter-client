@@ -24,6 +24,10 @@ export const REQUEST_USER_PROFILE_LOAD_POST = 'REQUEST_USER_PROFILE_LOAD_POST'
 export const SUCCESS_USER_PROFILE_LOAD_POST = 'SUCCESS_USER_PROFILE_LOAD_POST'
 export const FAILURE_USER_PROFILE_LOAD_POST = 'FAILURE_USER_PROFILE_LOAD_POST'
 
+export const REQUEST_LOGGED_IN_USER_PROFILE_LOAD_POST = 'REQUEST_LOGGED_IN_USER_PROFILE_LOAD_POST'
+export const SUCCESS_LOGGED_IN_USER_PROFILE_LOAD_POST = 'SUCCESS_LOGGED_IN_USER_PROFILE_LOAD_POST'
+export const FAILURE_LOGGED_IN_USER_PROFILE_LOAD_POST = 'FAILURE_LOGGED_IN_USER_PROFILE_LOAD_POST'
+
 export const requestLoadPost = () => {
   return {type: REQUEST_POST_LOAD}
 }
@@ -102,4 +106,16 @@ export const successUserProfileLoadPost = (data) => {
 
 export const failureUserProfileLoadPost = (er) => {
   return {type: FAILURE_USER_PROFILE_LOAD_POST, errorDetail: er}
+}
+
+export const requestLoggedInUserProfileLoadPost = () => {
+  return {type: REQUEST_LOGGED_IN_USER_PROFILE_LOAD_POST}
+}
+
+export const successLoggedInUserProfileLoadPost = (data) => {
+  return {type: SUCCESS_LOGGED_IN_USER_PROFILE_LOAD_POST, data: data}
+}
+
+export const failureLoggedInUserProfileLoadPost = (er) => {
+  return {type: FAILURE_LOGGED_IN_USER_PROFILE_LOAD_POST, errorDetail: er}
 }
