@@ -88,9 +88,9 @@ app.get('/loggedInUserProfile', function (req, res) {
   })
 });
 
-//http://localhost:8080/update_profile_picture
-app.get('/update_profile_picture', function (req, res) {
-  T.get('account/update_profile_image',req.query, function(err, data, response) {
+app.post('/update_profile_picture', function (req, res) {
+  T.post('account/update_profile_image',req.body, function(err, data, response) {
+    console.log(req.body);
     return res.json(data);
   })
 });

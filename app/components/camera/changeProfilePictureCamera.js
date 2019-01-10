@@ -41,7 +41,7 @@ class Camera extends React.Component {
 
   takePicture = async function() {
     if (this.camera) {
-      const options = { fixOrientation: true, quality: 1, base64: true };
+      const options = { fixOrientation: true, quality: 0.2, base64: true };
       const data = await this.camera.takePictureAsync(options);
       this.props.onPictureTaken(data);
     }

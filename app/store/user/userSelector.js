@@ -7,6 +7,6 @@ export const getLoggedInUserProfileId = state => {
   return 834702151
 }
 
-export const getProfilePictureTakenURI = state => {
-  return state.UserReducer.profilePictureTakenURI;
+export const getprofilePictureTaken = state => {
+  return state.UserReducer.profilePictureTaken;
 }

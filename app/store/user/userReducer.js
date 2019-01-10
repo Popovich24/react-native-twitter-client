@@ -6,7 +6,8 @@ import {
   SUCCESS_LOGGED_IN_USER_PROFILE,
   FAILURE_LOGGED_IN_USER_PROFILE,
   NEW_PICTURE_TAKEN_PROFILE_PICTURE_CHANGE,
-  PICTURE_ACCEPTED_PROFILE_PICTURE_CHANGE,
+  REQUEST_PROFILE_PICTURE_CHANGE,
+  SUCCESS_PROFILE_PICTURE_CHANGE,
   FAILURE_PROFILE_PICTURE_CHANGE,
 } from './userActions'
 
@@ -22,7 +23,7 @@ export let userState = {
   hasFailed: false,
 
   isProfilePictureTaken: false,
-  profilePictureTakenURI: '',
+  profilePictureTaken: '',
 
 }
 
@@ -47,13 +48,16 @@ const UserReducer =  (state = userState, action) => {
       state = Object.assign({}, state, {hasFailed: true, failureError: action.errorDetail, isLoadingLoggedInUserProfile: false});
       return state;
     case NEW_PICTURE_TAKEN_PROFILE_PICTURE_CHANGE:
-      state = Object.assign({}, state, {isProfilePictureTaken: true, profilePictureTakenURI: action.data});
+      state = Object.assign({}, state, {isProfilePictureTaken: true, profilePictureTaken: action.data});
       return state;
-    case PICTURE_ACCEPTED_PROFILE_PICTURE_CHANGE:
+    case REQUEST_PROFILE_PICTURE_CHANGE:
       state = Object.assign({}, state, {});
       return state;
+    case SUCCESS_PROFILE_PICTURE_CHANGE:
+      state = Object.assign({}, state, {isProfilePictureTaken: false, profilePictureTaken: '', loggedInUser: action.data});
+      return state;
     case FAILURE_PROFILE_PICTURE_CHANGE:
-      state = Object.assign({}, state, {isProfilePictureTaken: false, profilePictureTakenURI: ''});
+      state = Object.assign({}, state, {isProfilePictureTaken: false, profilePictureTaken: '', hasFailed: true, failureError: action.errorDetail});
       return state;
     default:
       return state;

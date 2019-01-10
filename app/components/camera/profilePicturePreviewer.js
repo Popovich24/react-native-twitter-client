@@ -19,7 +19,7 @@ const ProfilePicturePreviewer = (props) => {
     <View style={styles.previewContainer}>
       <Image
         style={styles.previewImage}
-        source={{uri: props.pictureURI}}
+        source={{uri: props.picture.uri}}
       />
       <View style={styles.previewActionsContainer}>
         <Ionicons name="ios-close" style={styles.icon} onPress={props.onRejectProfilePictureChange} size={80} color="#1183ff"/>

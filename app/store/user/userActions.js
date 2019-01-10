@@ -7,7 +7,8 @@ export const SUCCESS_LOGGED_IN_USER_PROFILE = 'SUCCESS_LOGGED_IN_USER_PROFILE'
 export const FAILURE_LOGGED_IN_USER_PROFILE = 'FAILURE_LOGGED_IN_USER_PROFILE'
 
 export const NEW_PICTURE_TAKEN_PROFILE_PICTURE_CHANGE = 'NEW_PICTURE_TAKEN_PROFILE_PICTURE_CHANGE'
-export const PICTURE_ACCEPTED_PROFILE_PICTURE_CHANGE = 'PICTURE_ACCEPTED_PROFILE_PICTURE_CHANGE'
+export const REQUEST_PROFILE_PICTURE_CHANGE = 'REQUEST_PROFILE_PICTURE_CHANGE'
+export const SUCCESS_PROFILE_PICTURE_CHANGE = 'SUCCESS_PROFILE_PICTURE_CHANGE'
 export const FAILURE_PROFILE_PICTURE_CHANGE = 'FAILURE_PROFILE_PICTURE_CHANGE'
 
 export const requestUserProfile = (userId) => {
@@ -38,8 +39,12 @@ export const newPictureTakenProfilePictureChange = (data) => {
   return {type: NEW_PICTURE_TAKEN_PROFILE_PICTURE_CHANGE, data: data}
 }
 
-export const pictureAcceptedProfilePictureChange = () => {
-  return {type: PICTURE_ACCEPTED_PROFILE_PICTURE_CHANGE}
+export const requestProfilePictureChange = () => {
+  return {type: REQUEST_PROFILE_PICTURE_CHANGE}
+}
+
+export const successProfilePictureChange = (data) => {
+  return {type: SUCCESS_PROFILE_PICTURE_CHANGE, data: data}
 }
 
 export const failureProfilePictureChange = (er) => {

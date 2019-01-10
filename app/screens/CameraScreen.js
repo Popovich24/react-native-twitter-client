@@ -19,7 +19,7 @@ import ChangeProfilePictureCamera from './../components/camera/changeProfilePict
 import ProfilePicturePreviewer from './../components/camera/profilePicturePreviewer'
 
 
-import {newPictureTakenProfilePictureChange, pictureAcceptedProfilePictureChange, failureProfilePictureChange} from '../store/user/userActions';
+import {newPictureTakenProfilePictureChange, requestProfilePictureChange, failureProfilePictureChange} from '../store/user/userActions';
 import {connect} from 'react-redux';
 
 export class CameraScreen extends Component {
@@ -34,8 +34,7 @@ export class CameraScreen extends Component {
   }
 
   handleOnPictureTaken = (data) => {
-    console.log(data.uri);
-    this.props.newPictureTakenProfilePictureChange(data.uri);
+    this.props.newPictureTakenProfilePictureChange(data);
   }
 
   componentDidMount = () => {
@@ -50,7 +49,7 @@ export class CameraScreen extends Component {
   }
 
   handleOnAcceptProfilePictureChange = () => {
-    this.props.pictureAcceptedProfilePictureChange();
+    this.props.requestProfilePictureChange();
     this.props.navigation.goBack();
   }
 
@@ -73,7 +72,7 @@ export class CameraScreen extends Component {
       }
       {this.props.hasPictureBeenTaken &&
         <ProfilePicturePreviewer
-          pictureURI={this.props.profilePictureTakenURI}
+          picture={this.props.profilePictureTaken}
           onRejectProfilePictureChange={this.handleOnRejectProfilePictureChange}
           onAcceptProfilePictureChange={this.handleOnAcceptProfilePictureChange}
         />
@@ -101,13 +100,13 @@ export class CameraScreen extends Component {
 function mapStateToProps(state, props) {
   return {
       hasPictureBeenTaken: state.UserReducer.isProfilePictureTaken,
-      profilePictureTakenURI: state.UserReducer.profilePictureTakenURI,
+      profilePictureTaken: state.UserReducer.profilePictureTaken,
   }
 }
 
 const mapDispatchToProps = {
   newPictureTakenProfilePictureChange: (data) => newPictureTakenProfilePictureChange(data),
-  pictureAcceptedProfilePictureChange: () => pictureAcceptedProfilePictureChange(),
+  requestProfilePictureChange: () => requestProfilePictureChange(),
   failureProfilePictureChange: () => failureProfilePictureChange(),
 }
 

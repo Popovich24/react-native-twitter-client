@@ -1,6 +1,6 @@
 import { call, all, put, takeEvery, takeLatest, take, select } from 'redux-saga/effects'
 import { delay } from 'redux-saga'
-import {getUserProfileId, getProfilePictureTakenURI} from './userSelector'
+import {getUserProfileId, getprofilePictureTaken} from './userSelector'
 
 import {
   successUserProfile,
@@ -9,7 +9,8 @@ import {
   successLoggedInUserProfile,
   failureLoggedInUserProfile,
   REQUEST_LOGGED_IN_USER_PROFILE,
-  PICTURE_ACCEPTED_PROFILE_PICTURE_CHANGE,
+  REQUEST_PROFILE_PICTURE_CHANGE,
+  successProfilePictureChange,
 } from "./userActions.js"
 
 export const serverIP = '10.160.11.56:8080';
@@ -49,28 +50,29 @@ function* watchLoggedInUserProfile(){
 
 function* changeLoggedInUserProfilePicture(){
   const url = `http://${serverIP}/update_profile_picture`;
-  const newProfilePictureURI = yield select(getProfilePictureTakenURI);
-  const fileImage = {
-    uri: newProfilePictureURI,
-    name: 'image.jpg',
-    type: 'image/jpeg',
-  };
-
-  const formData = new FormData();
-  formData.append('image', fileImage)
+  const newProfilePicture = yield select(getprofilePictureTaken);
 
   const request = {
-    body: formData,
+    body: JSON.stringify({image: newProfilePicture.base64}),
     method: 'POST',
     headers: new Headers({
-              'Content-Type': 'multipart/form-data'
-    }),
+              'Content-Type': 'application/json'
+    })
   }
-  yield call(fetch, url, request);
+
+  try{
+    const response = yield call(fetch, url, request);
+    const data = yield call([response, 'json']);
+    yield put(successProfilePictureChange(data));
+  } catch(er) {
+    yield put(failureProfilePictureChange(er));
+  }
+
+
 }
 
 function* watchChangeLoggedInUserProfilePicture(){
-  yield takeLatest(PICTURE_ACCEPTED_PROFILE_PICTURE_CHANGE, changeLoggedInUserProfilePicture);
+  yield takeLatest(REQUEST_PROFILE_PICTURE_CHANGE, changeLoggedInUserProfilePicture);
 }
 
 export default function* userSagas(){

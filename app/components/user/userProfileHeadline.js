@@ -10,10 +10,6 @@ import {
 
 const UserProfileHeadline = (props) => {
 
-  //adding a banner when no banner available
-  //TODO: remove :)
-  //if (!props.user.profile_banner_url) { props.user.profile_banner_url = 'https://pbs.twimg.com/profile_banners/25992212/1533675118' }
-
   const handleOnProfilePicPress = () => {
     props.onProfilePicPress();
   }
