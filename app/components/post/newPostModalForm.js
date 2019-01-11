@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Modal, Text, TouchableHighlight, View, TextInput, StyleSheet, Dimensions} from 'react-native'
+import {Modal, Text, TouchableHighlight, View, TextInput, StyleSheet, Dimensions, TouchableOpacity} from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
 import UserProfilePicture from './../user/userProfilePicture'
@@ -29,8 +29,14 @@ class NewPostModalForm extends Component {
           onRequestClose={() => {}}>
           <View style={styles.modalContainer}>
             <View style={styles.actionsContainer}>
-              <Ionicons name="ios-send" onPress={this.handleOnSendButtonPress} size={32} color="#1183ff"/>
-              <Ionicons name="ios-close" onPress={this.props.onCloseButtonPress} size={32} color="#1183ff"/>
+              <TouchableOpacity onPress={this.handleOnSendButtonPress} style={styles.actionButton}>
+                <Ionicons name="ios-send" size={32} color="#1183ff"/>
+                <Text style={styles.actionText}> Tweet </Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={this.props.onCloseButtonPress} style={styles.actionButton}>
+                <Ionicons name="ios-close" size={44} color="#1183ff"/>
+                <Text style={styles.actionText}> Close </Text>
+              </TouchableOpacity>
             </View>
             <View style={styles.textInputContainer}>
               <TextInput
@@ -58,6 +64,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     margin: 10,
+  },
+  actionButton: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  actionText: {
+    color: '#1183ff'
   },
   modalContainer: {
     flex: 0.7,
