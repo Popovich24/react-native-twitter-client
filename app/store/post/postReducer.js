@@ -21,6 +21,9 @@ import {
   REQUEST_LOGGED_IN_USER_PROFILE_LOAD_POST,
   SUCCESS_LOGGED_IN_USER_PROFILE_LOAD_POST,
   FAILURE_LOGGED_IN_USER_PROFILE_LOAD_POST,
+  REQUEST_ADD_NEW_POST,
+  SUCCESS_ADD_NEW_POST,
+  FAILURE_ADD_NEW_POST,
 } from './postActions'
 
 export let postState = {
@@ -43,6 +46,9 @@ export let postState = {
 
   loggedInUserProfilePost: [],
   isLoadingLoggedInUserProfilePost: false,
+
+  newPost: {},
+  isSendingNewPost: false,
 
   failureError: '',
   hasFailed: false,
@@ -126,6 +132,15 @@ const PostReducer = (state = postState, action) => {
       state = Object.assign({}, state, {isLoadingLoggedInUserProfilePost: false, hasFailed: true, errorDetail: action.errorDetail});
       return state;
 
+    case REQUEST_ADD_NEW_POST:
+      state = Object.assign({}, state, {newPost: action.data, isSendingNewPost: true,});
+      return state;
+    case SUCCESS_ADD_NEW_POST:
+      state = Object.assign({}, state, {isSendingNewPost: false, loggedInUserProfilePost: [action.data].concat(state.loggedInUserProfilePost)});
+      return state;
+    case FAILURE_ADD_NEW_POST:
+      state = Object.assign({}, state, {isSendingNewPost: false, hasFailed: true, errorDetail: action.errorDetail});
+      return state;
     default:
       return state;
   }

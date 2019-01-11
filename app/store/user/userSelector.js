@@ -3,8 +3,8 @@ export const getUserProfileId = state => {
 }
 
 export const getLoggedInUserProfileId = state => {
-  //return state.UserReducer.loggedInUser.id_str;
-  return 834702151
+  return state.UserReducer.loggedInUser.id_str;
+  //return 834702151
 }
 
 export const getprofilePictureTaken = state => {

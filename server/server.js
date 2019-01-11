@@ -90,7 +90,13 @@ app.get('/loggedInUserProfile', function (req, res) {
 
 app.post('/update_profile_picture', function (req, res) {
   T.post('account/update_profile_image',req.body, function(err, data, response) {
-    console.log(req.body);
+    return res.json(data);
+  })
+});
+
+//http://localhost:8080/loggedInUserProfile
+app.post('/post', function (req, res) {
+  T.post('statuses/update',req.body, function(err, data, response) {
     return res.json(data);
   })
 });

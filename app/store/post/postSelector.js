@@ -40,3 +40,7 @@ export const getNotSilencedPost = (state) => {
 
   });
 }
+
+export const getNewPost = state => {
+  return state.PostReducer.newPost;
+}

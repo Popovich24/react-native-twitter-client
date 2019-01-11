@@ -8,6 +8,8 @@ import {
   Dimensions,
 } from 'react-native';
 
+import UserProfilePicture from './userProfilePicture'
+
 const UserProfileHeadline = (props) => {
 
   const handleOnProfilePicPress = () => {
@@ -27,12 +29,10 @@ const UserProfileHeadline = (props) => {
         </View>
       }
       <View style={[ styles.row, styles.horizontalCentered ]}>
-        <TouchableHighlight onPress={handleOnProfilePicPress}>
-          <Image
-            source={{uri: props.user.profile_image_url_https}}
-            style={styles.profilePic}
-          />
-        </TouchableHighlight>
+        <UserProfilePicture
+          onPress={handleOnProfilePicPress}
+          user={props.user}
+        />
         <View style={styles.userName}>
           <Text style={styles.userNameText}> {props.user.name} </Text>
         </View>
@@ -72,14 +72,6 @@ const styles = StyleSheet.create({
   horizontalCentered: {
     justifyContent: 'center'
   },
-  profilePic: {
-    resizeMode: 'contain',
-    alignSelf: 'center',
-    height: 50,
-    width: 50,
-    borderRadius: 25,
-  },
-
   row:{
     flexDirection: 'row',
   },

@@ -4,7 +4,9 @@ import {
   getLastPostId,
   getSearchKeyword,
   getLastSearchResultId,
-  getShowPostId} from './postSelector'
+  getShowPostId,
+  getNewPost,
+} from './postSelector'
 import { getUserProfileId, getLoggedInUserProfileId} from './../user/userSelector'
 import { getConfiguration } from './../configuration/configurationSelector'
 
@@ -16,6 +18,7 @@ import {
   successSearchMorePost,
   successPostShow,
   successUserProfileLoadPost,
+  successAddNewPost,
   failureLoadPost,
   failureLoadMorePost,
   failureSearchForPost,
@@ -25,6 +28,7 @@ import {
   requestLoggedInUserProfileLoadPost,
   successLoggedInUserProfileLoadPost,
   failureLoggedInUserProfileLoadPost,
+  failureAddNewPost,
   REQUEST_POST_LOAD,
   REQUEST_POST_LOAD_MORE,
   REQUEST_POST_SEARCH,
@@ -32,6 +36,7 @@ import {
   REQUEST_POST_SHOW,
   REQUEST_USER_PROFILE_LOAD_POST,
   REQUEST_LOGGED_IN_USER_PROFILE_LOAD_POST,
+  REQUEST_ADD_NEW_POST,
 } from "./postActions"
 
 import {SUCCESS_USER_PROFILE, SUCCESS_LOGGED_IN_USER_PROFILE} from './../user/userActions'
@@ -179,6 +184,33 @@ function* watchLoggedInUserProfileLoaded() {
   yield takeLatest(SUCCESS_LOGGED_IN_USER_PROFILE, onLoggedInUserProfileLoaded);
 }
 
+function* addNewPost() {
+  try {
+    const post = yield select(getNewPost);
+    const url = `http://${serverIP}/post`;
+
+    const request = {
+      body: JSON.stringify({status: post}),
+      method: 'POST',
+      headers: new Headers({
+                'Content-Type': 'application/json'
+      })
+    }
+
+    const response = yield call(fetch, url, request);
+    const data = yield call([response, 'json']);
+    console.log(data);
+    yield put(successAddNewPost(data));
+  } catch (er) {
+    console.log(er);
+    yield put(failureAddNewPost(er));
+  }
+}
+
+function* watchAddNewPost() {
+  yield takeLatest(REQUEST_ADD_NEW_POST, addNewPost);
+}
+
 
 export default function* postSagas() {
   yield all([
@@ -191,6 +223,7 @@ export default function* postSagas() {
     watchUserProfileLoaded(),
     watchLoadLoggedInUserProfileTimeline(),
     watchLoggedInUserProfileLoaded(),
+    watchAddNewPost(),
   ])
 }
 

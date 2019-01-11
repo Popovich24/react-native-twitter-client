@@ -43,20 +43,6 @@ const postDetails = (props) => {
   );
 };
 
-/*
-<View style={styles.socialInteractionContainer}>
-  <View style={[styles.socialInteractionElement, {backgroundColor: '#F20E49'}]}>
-    <Ionicons name="ios-heart-outline" size={32} color="white"/>
-  </View>
-  <View style={[styles.socialInteractionElement, {backgroundColor: '#26B943'}]}>
-    <Ionicons name="ios-chatboxes-outline" size={32} color="white"/>
-  </View>
-  <View style={[styles.socialInteractionElement, {backgroundColor: '#06B3E7'}]}>
-    <Ionicons name="ios-share-alt" size={32} color="white"/>
-  </View>
-</View>
-*/
-
 const formatDate = (date) => {
   return date.slice(11, 16).concat(' - ' + date.slice(8, 10))
    .concat(' ' + date.slice(4, 7) + '.').concat(' ' + date.slice(28, 30));

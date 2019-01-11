@@ -4,24 +4,56 @@ import PropTypes from 'prop-types';
 import {getNotSilencedPost} from './../store/post/postSelector'
 import {bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
-import {requestLoadPost, requestLoadMorePost} from '../store/post/postActions';
-import Timeline from '../components/timeline/timeline' //Import the component file
+import {requestLoadPost, requestLoadMorePost, requestAddNewPost} from '../store/post/postActions';
+import Timeline from '../components/timeline/timeline'
+import PostButton from '../components/post/postButton'
+import NewPostModalForm from '../components/post/newPostModalForm'
 
-export const HomeScreen = (props) => (
-  <View style={styles.container}>
-    <Timeline
-      data={props.loadedPost}
-      navigation={props.navigation}
-      loading={props.loading}
-      loadingMorePost={props.loadingMorePost}
-      onRefresh={props.requestLoadPost}
-      refreshing={false}
-      onComponentMount={props.requestLoadPost}
-      onEndReached={props.requestLoadMorePost}
-    />
-  </View>
-);
+export class HomeScreen extends React.Component {
 
+  constructor(props){
+    super(props);
+
+    this.state = {
+      showingNewPostForm: false,
+    }
+  }
+
+  handleOnPostButtonPress = () => {
+    this.setState({
+      showingNewPostForm: !this.state.showingNewPostForm,
+    });
+  }
+
+  handleOnSendButtonPress = (newPost) => {
+    this.props.requestAddNewPost(newPost);
+    this.handleOnPostButtonPress();
+  }
+
+  render = () => {
+    return (
+      <View style={styles.container}>
+        <Timeline
+          data={this.props.loadedPost}
+          navigation={this.props.navigation}
+          loading={this.props.loading}
+          loadingMorePost={this.props.loadingMorePost}
+          onRefresh={this.props.requestLoadPost}
+          refreshing={false}
+          onComponentMount={this.props.requestLoadPost}
+          onEndReached={this.props.requestLoadMorePost}
+        />
+        <PostButton onPress={this.handleOnPostButtonPress} />
+        <NewPostModalForm
+          onTextInputValueChange={this.handleOnTextInputValueChange}
+          modalVisible={this.state.showingNewPostForm}
+          onSendButtonPress={this.handleOnSendButtonPress}
+          onCloseButtonPress={this.handleOnPostButtonPress}
+        />
+      </View>
+    );
+  }
+}
 HomeScreen.propTypes = {
   navigation: PropTypes.object.isRequired,
 };
@@ -48,6 +80,7 @@ function mapStateToProps(state, props) {
 const mapDispatchToProps = {
   requestLoadPost: () => requestLoadPost(),
   requestLoadMorePost: () => requestLoadMorePost(),
+  requestAddNewPost: (newPost) => requestAddNewPost(newPost),
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);
