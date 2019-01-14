@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "42969975069",
+    "firebase_url": "https://push-notifications-test-2d695.firebaseio.com",
+    "project_id": "push-notifications-test-2d695",
+    "storage_bucket": "push-notifications-test-2d695.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:42969975069:android:b30e5e921c4ddd5b",
+        "android_client_info": {
+          "package_name": "com.faketwiter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "42969975069-rq36bu12l1k4itdjotqbp199hi2as8ik.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXcnY5TG7DM406ogVTiM42jGDQzQLjm5Q"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -7,6 +7,7 @@ import {
   CONFIG_TOGGLE_CONTAINS_LINK,
   CONFIG_TOGGLE_TEXT_TRUNCATED
 } from "./configurationActions"
+import { AsyncStorage } from "react-native"
 
 export let configurationState = {
   configVerifiedOnly: false,

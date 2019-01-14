@@ -18,7 +18,6 @@ import PostScreen from '../screens/PostScreen'
 import UserProfileScreen from '../screens/UserProfileScreen'
 import LoggedInUserProfileScreen from '../screens/LoggedInUserProfileScreen'
 import CameraScreen from '../screens/CameraScreen'
-import NotificationScreen from './../screens/NotificationScreen'
 
 const middleware = createReactNavigationReduxMiddleware(
   'root',

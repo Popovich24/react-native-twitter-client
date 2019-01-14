@@ -14,23 +14,47 @@ import {
   configToggleTextTruncated,
 } from '../store/configuration/configurationActions';
 
-export const ConfigScreen = (props) => (
-  <View style={styles.container}>
-    <ConfigList
-      configVerifiedOnly={props.configVerifiedOnly}
-      configDoNotFollow={props.configDoNotFollow}
-      configHaveDefaultInformation={props.configHaveDefaultInformation}
-      configContainsLink={props.configContainsLink}
-      configTextTruncated={props.configTextTruncated}
+export class ConfigScreen extends React.Component {
 
-      configToggleVerifiedOnly={props.configToggleVerifiedOnly}
-      configToggleDoNotFollow={props.configToggleDoNotFollow}
-      configToggleHaveDefaultInformation={props.configToggleHaveDefaultInformation}
-      configToggleContainsLink={props.configToggleContainsLink}
-      configToggleTextTruncated={props.configToggleTextTruncated}
-      />
-  </View>
-);
+  handleConfigToggleVerifiedOnly = () => {
+    this.props.configToggleVerifiedOnly();
+  }
+
+  handleConfigToggleDoNotFollow = () => {
+    this.props.configToggleDoNotFollow();
+  }
+
+  handleConfigToggleHaveDefaultInformation = () => {
+    this.props.configToggleHaveDefaultInformation();
+  }
+
+  handleConfigToggleContainsLink = () => {
+    this.props.configToggleContainsLink();
+  }
+
+  handleConfigToggleTextTruncated = () => {
+    this.props.configToggleTextTruncated();
+  }
+
+  render = () => {
+    return (
+    <View style={styles.container}>
+      <ConfigList
+        configVerifiedOnly={this.props.configVerifiedOnly}
+        configDoNotFollow={this.props.configDoNotFollow}
+        configHaveDefaultInformation={this.props.configHaveDefaultInformation}
+        configContainsLink={this.props.configContainsLink}
+        configTextTruncated={this.props.configTextTruncated}
+
+        configToggleVerifiedOnly={this.handleConfigToggleVerifiedOnly}
+        configToggleDoNotFollow={this.handleConfigToggleDoNotFollow}
+        configToggleHaveDefaultInformation={this.handleConfigToggleHaveDefaultInformation}
+        configToggleContainsLink={this.handleConfigToggleContainsLink}
+        configToggleTextTruncated={this.handleConfigToggleTextTruncated}
+        />
+    </View>);
+  }
+};
 
 ConfigScreen.propTypes = {
   navigation: PropTypes.object.isRequired,
