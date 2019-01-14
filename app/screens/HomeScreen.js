@@ -5,6 +5,8 @@ import {getNotSilencedPost} from './../store/post/postSelector'
 import {bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
 import {requestLoadPost, requestLoadMorePost, requestAddNewPost} from '../store/post/postActions';
+import PushNotification from 'react-native-push-notification';
+import PushController from './../components/notification/PushController.js';
 import Timeline from '../components/timeline/timeline'
 import PostButton from '../components/post/postButton'
 import NewPostModalForm from '../components/post/newPostModalForm'
@@ -28,6 +30,9 @@ export class HomeScreen extends React.Component {
   handleOnSendButtonPress = (newPost) => {
     this.props.requestAddNewPost(newPost);
     this.handleOnPostButtonPress();
+    PushNotification.localNotification({
+      message: 'Tweet added!'
+    });
   }
 
   render = () => {
@@ -50,6 +55,7 @@ export class HomeScreen extends React.Component {
           onSendButtonPress={this.handleOnSendButtonPress}
           onCloseButtonPress={this.handleOnPostButtonPress}
         />
+        <PushController />
       </View>
     );
   }

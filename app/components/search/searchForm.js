@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-import { StyleSheet, Text, View, Button, TextInput, TouchableHighlight, Animated } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput, TouchableHighlight, Animated, Alert } from 'react-native';
 import PropTypes from 'prop-types';
 import {StackNavigator} from 'react-navigation';
 import Fade from './../animation/fade'

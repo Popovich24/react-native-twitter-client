@@ -18,7 +18,7 @@ import PostScreen from '../screens/PostScreen'
 import UserProfileScreen from '../screens/UserProfileScreen'
 import LoggedInUserProfileScreen from '../screens/LoggedInUserProfileScreen'
 import CameraScreen from '../screens/CameraScreen'
-
+import NotificationScreen from './../screens/NotificationScreen'
 
 const middleware = createReactNavigationReduxMiddleware(
   'root',
@@ -103,8 +103,12 @@ const RootNavigator = createMaterialTopTabNavigator({
           iconName = "ios-person";
           break;
         }
+        case "Search": {
+          iconName = "ios-search";
+          break;
+        }
         default: {
-          iconName = "ios-search"
+          iconName = "ios-notifications"
         }
       }
       return <Ionicons name={iconName} size={horizontal ? 35 : 45} color={tintColor} />;

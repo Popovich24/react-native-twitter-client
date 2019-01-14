@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Modal, Text, TouchableHighlight, View, TextInput, StyleSheet, Dimensions, TouchableOpacity} from 'react-native'
+import {Modal, Text, TouchableHighlight, View, TextInput, StyleSheet, Dimensions, TouchableOpacity, Alert} from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
 import UserProfilePicture from './../user/userProfilePicture'
@@ -15,8 +15,33 @@ class NewPostModalForm extends Component {
   }
 
   handleOnSendButtonPress = () => {
-    this.props.onSendButtonPress(this.state.postText);
-    this.setState({postText: ''});
+    if (this.state.postText.length > 0) {
+      this.props.onSendButtonPress(this.state.postText);
+      this.setState({postText: ''});
+    } else {
+      Alert.alert('Error',"Tweet can't be empty");
+    }
+  }
+
+  handleOnCloseButtonPress = () => {
+
+    const handleOnOKButtonPress = () => {
+      this.props.onCloseButtonPress();
+      this.setState({postText: ''});
+    }
+
+    if (this.state.postText.length > 0) {
+      Alert.alert(
+        'Warning',
+        'Delete draft?',
+        [
+          {text: 'Cancel', onPress: () => {}},
+          {text: 'OK', onPress: handleOnOKButtonPress},
+        ]
+      )
+    } else {
+      this.props.onCloseButtonPress();
+    }
   }
 
   render = () => {
@@ -33,7 +58,7 @@ class NewPostModalForm extends Component {
                 <Ionicons name="ios-send" size={32} color="#1183ff"/>
                 <Text style={styles.actionText}> Tweet </Text>
               </TouchableOpacity>
-              <TouchableOpacity onPress={this.props.onCloseButtonPress} style={styles.actionButton}>
+              <TouchableOpacity onPress={this.handleOnCloseButtonPress} style={styles.actionButton}>
                 <Ionicons name="ios-close" size={44} color="#1183ff"/>
                 <Text style={styles.actionText}> Close </Text>
               </TouchableOpacity>

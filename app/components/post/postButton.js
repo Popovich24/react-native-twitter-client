@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
   newTweetButton: {
     width: 60,
     height: 60,
+    elevation: 1,
     borderRadius: 30,
     backgroundColor: '#1FBFFF',
     position: 'absolute',
