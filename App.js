@@ -14,7 +14,6 @@
  import { AppNavigator, middleware } from './app/components/AppNavigator'
  import {store} from './app/store'
  import PushController from './app/components/notification/PushController.js';
-
  export class App extends React.Component {
 
   render() {

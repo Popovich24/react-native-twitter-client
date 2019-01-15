@@ -1,9 +1,7 @@
 'use strict';
 
 import React from 'react';
-import {StyleSheet, Text, View, Button, CheckBox} from 'react-native';
-import PropTypes from 'prop-types';
-import {StackNavigator} from 'react-navigation';
+import {StyleSheet, Text, View} from 'react-native';
 import ConfigItem from './ConfigItem';
 
 const ConfigList = (props) => (

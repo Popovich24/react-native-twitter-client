@@ -5,7 +5,7 @@ import {getNotSilencedPost} from './../store/post/postSelector'
 import {bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
 import {requestLoadPost, requestLoadMorePost, requestAddNewPost} from '../store/post/postActions';
-import PushNotification from 'react-native-push-notification';
+import {NotificationController} from '../components/notification/notificationController'
 import Timeline from '../components/timeline/timeline'
 import PostButton from '../components/post/postButton'
 import NewPostModalForm from '../components/post/newPostModalForm'
@@ -14,7 +14,7 @@ export class HomeScreen extends React.Component {
 
   constructor(props){
     super(props);
-
+    this.notificationController = new NotificationController();
     this.state = {
       showingNewPostForm: false,
     }
@@ -29,32 +29,14 @@ export class HomeScreen extends React.Component {
   handleOnSendButtonPress = (newPost) => {
     this.props.requestAddNewPost(newPost);
     this.handleOnPostButtonPress();
-    this.sendLocalNotification('Tweet added!');
+    this.notificationController.sendLocalNotification('Tweet added!');
 
     const longTimeSinceLastTweetId = '1';
     const delayNotificationInSeconds = 15;
     const notificationMessage = "Hey! It's been a while since your last tweet!";
 
-    this.cancelScheduledNotification(longTimeSinceLastTweetId);
-    this.scheduleNotification(notificationMessage, delayNotificationInSeconds, longTimeSinceLastTweetId);
-  }
-
-  sendLocalNotification = (message) => {
-    PushNotification.localNotification({
-      message: message,
-    });
-  }
-
-  cancelScheduledNotification = (id) => {
-    PushNotification.cancelLocalNotifications({id: id});
-  }
-
-  scheduleNotification = (message, delayInSeconds, id) => {
-    PushNotification.localNotificationSchedule({
-      message: message,
-      id: id,
-      date: new Date(Date.now() + (delayInSeconds * 1000))
-    });
+    this.notificationController.cancelScheduledNotification(longTimeSinceLastTweetId);
+    this.notificationController.scheduleNotification(notificationMessage, delayNotificationInSeconds, longTimeSinceLastTweetId);
   }
 
   render = () => {

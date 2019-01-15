@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Button, CheckBox } from 'react-native';
 import PropTypes from 'prop-types';
 import {StackNavigator} from 'react-navigation';
+import {NotificationController} from '../components/notification/notificationController'
 
 import ConfigList from './../components/configuration/ConfigList';
 import {bindActionCreators} from 'redux';
@@ -16,23 +17,56 @@ import {
 
 export class ConfigScreen extends React.Component {
 
+  constructor(props) {
+    super(props);
+
+    this.notificationController = new NotificationController();
+  }
+
   handleConfigToggleVerifiedOnly = () => {
+    if (!this.props.configVerifiedOnly) {
+      this.notificationController.setUpSilencedVerifiedAccountsNotification();
+    } else {
+      this.notificationController.tearDownSilencedVerifiedAccountsNotification();
+    }
+
     this.props.configToggleVerifiedOnly();
+
   }
 
   handleConfigToggleDoNotFollow = () => {
+    if (!this.props.configDoNotFollow) {
+      this.notificationController.setUpSilencedDoNotFollowNotification();
+    } else {
+      this.notificationController.tearDownSilencedDoNotFollowNotification();
+    }
     this.props.configToggleDoNotFollow();
   }
 
   handleConfigToggleHaveDefaultInformation = () => {
+    if (!this.props.configHaveDefaultInformation) {
+      this.notificationController.setUpSilencedHaveDefaultProfileNotification();
+    } else {
+      this.notificationController.tearDownSilencedHaveDefaultProfileNotification();
+    }
     this.props.configToggleHaveDefaultInformation();
   }
 
   handleConfigToggleContainsLink = () => {
+    if (!this.props.configContainsLink) {
+      this.notificationController.setUpSilencedPostThatContainLinkNotification();
+    } else {
+      this.notificationController.tearDownSilencedPostThatContainLinkNotification();
+    }
     this.props.configToggleContainsLink();
   }
 
   handleConfigToggleTextTruncated = () => {
+    if (!this.props.configTextTruncated) {
+      this.notificationController.setUpSilencedPostThatHaveTextTruncated();
+    } else {
+      this.notificationController.tearDownSilencedPostThatHaveTextTruncated();
+    }
     this.props.configToggleTextTruncated();
   }
 
@@ -51,7 +85,7 @@ export class ConfigScreen extends React.Component {
         configToggleHaveDefaultInformation={this.handleConfigToggleHaveDefaultInformation}
         configToggleContainsLink={this.handleConfigToggleContainsLink}
         configToggleTextTruncated={this.handleConfigToggleTextTruncated}
-        />
+      />
     </View>);
   }
 };
@@ -89,4 +123,4 @@ const mapDispatchToProps = {
   configToggleTextTruncated: () => configToggleTextTruncated(),
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ConfigList);
+export default connect(mapStateToProps, mapDispatchToProps)(ConfigScreen);

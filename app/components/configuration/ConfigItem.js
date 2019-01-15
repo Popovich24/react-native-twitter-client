@@ -7,18 +7,10 @@ class ConfigItem extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      value: this.props.value,
-    }
-
     this.handleOnValueChange = this.handleOnValueChange.bind(this);
   }
 
   handleOnValueChange() {
-    this.setState({
-      value: !this.state.value,
-    });
-
     this.props.onChange();
   }
 
@@ -32,7 +24,7 @@ class ConfigItem extends React.Component {
          <CheckBox
           style={styles.configCheckBox}
           onValueChange={this.handleOnValueChange}
-          value={this.state.value}
+          value={this.props.value}
          />
        </View>
      </View>
