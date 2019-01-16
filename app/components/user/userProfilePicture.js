@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {
-  StyleSheet,
   View,
   Text,
   Image,
   TouchableHighlight,
   Dimensions,
-} from 'react-native';
-
+} from 'react-native'
+import {styles} from './userProfilePicture.styles.js'
 const UserProfilePicture = (props) => {
   return (
     <TouchableHighlight onPress={props.onPress}>
@@ -20,13 +19,3 @@ const UserProfilePicture = (props) => {
 }
 
 export default UserProfilePicture;
-
-const styles = StyleSheet.create({
-  profilePic: {
-    resizeMode: 'contain',
-    alignSelf: 'center',
-    height: 50,
-    width: 50,
-    borderRadius: 25,
-  },
-});

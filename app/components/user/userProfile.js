@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  StyleSheet,
   ScrollView,
   View,
   Text,
@@ -9,6 +8,7 @@ import {
 
 import PostList from './../post/postList'
 import UserProfileHeadline from './userProfileHeadline'
+import {styles} from './userProfile.styles.js'
 
 const UserProfile = (props) => {
   return (
@@ -40,27 +40,3 @@ const UserProfile = (props) => {
 }
 
 export default UserProfile
-
-const styles = StyleSheet.create({
-  userContainer: {
-    flex: 1,
-    backgroundColor: 'white',
-    justifyContent: 'flex-start',
-    flexDirection: 'column',
-  },
-  textBanner: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    alignSelf: 'center',
-  },
-  separator: {
-    height: 1,
-    backgroundColor: '#dddddd'
-  },
-  userProfile: {
-    marginBottom: 5,
-  },
-  postList: {
-    marginTop: 5,
-  },
-});

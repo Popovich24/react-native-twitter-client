@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet,
   FlatList,
   View,
   Text,
   ActivityIndicator,
   TouchableHighlight
-} from 'react-native';
+} from 'react-native'
 
 import PostListElement from './postListElement'
 

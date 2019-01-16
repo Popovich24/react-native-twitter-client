@@ -1,7 +1,7 @@
-import React from 'react';
-import { StyleSheet, Text, View, Button, TextInput, TouchableHighlight, Animated } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-
+import React from 'react'
+import { StyleSheet, Text, View, Button, TextInput, TouchableHighlight, Animated } from 'react-native'
+import Ionicons from 'react-native-vector-icons/Ionicons'
+import {styles} from './postButton.styles.js'
 
 const PostButton = (props) => {
   return (
@@ -12,18 +12,3 @@ const PostButton = (props) => {
 }
 
 export default PostButton;
-
-const styles = StyleSheet.create({
-  newTweetButton: {
-    width: 60,
-    height: 60,
-    elevation: 1,
-    borderRadius: 30,
-    backgroundColor: '#1FBFFF',
-    position: 'absolute',
-    bottom: 10,
-    right: 10,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-});

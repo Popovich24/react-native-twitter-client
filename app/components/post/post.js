@@ -2,7 +2,6 @@
 
 import React, { Component } from 'react';
 import {
-  StyleSheet,
   View,
   Text,
   Image,
@@ -13,6 +12,7 @@ import {PostContent} from './postComponent/postContent'
 import {PostMedia} from './postComponent/postMedia'
 import {PostProfilePicture} from './postComponent/postProfilePicture'
 import {PostUserInformation} from './postComponent/postUserInformation'
+import {styles} from './post.styles.js'
 
 class Post extends React.PureComponent{
 
@@ -45,21 +45,3 @@ class Post extends React.PureComponent{
 }
 
 export default Post;
-
-const styles = StyleSheet.create({
-  row:{
-    flexDirection: 'row',
-    flex: 1,
-  },
-
-  contentView: {
-    flex: 0.8,
-  },
-
-  post: {
-    borderBottomWidth: 1,
-    borderColor: "#ccc",
-    padding: 10,
-  },
-
-});

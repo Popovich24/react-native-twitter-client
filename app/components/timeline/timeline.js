@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 
 import PostList from './../post/postList'
+import {styles} from './timeline.styles.js'
 
 class Timeline extends Component {
 
@@ -48,18 +49,3 @@ class Timeline extends Component {
 }
 
 export default Timeline;
-
-const styles = StyleSheet.create({
-  activityIndicatorContainer:{
-    backgroundColor: "#fff",
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1,
-  },
-
-  timeline: {
-    flex:1,
-    backgroundColor: '#FFFFFF',
-    paddingTop:20
-  },
-});

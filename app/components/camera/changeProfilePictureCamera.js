@@ -2,15 +2,15 @@
 
 import React, {Component} from 'react';
 import {
-  StyleSheet,
   View,
   Text,
   Image,
   TouchableHighlight,
-  Dimensions,
   ActivityIndicator,
   TouchableOpacity,
 } from 'react-native';
+
+import {styles} from './changeProfilePictureCamera.styles.js'
 
 import { RNCamera } from 'react-native-camera';
 import { PermissionsAndroid } from 'react-native';
@@ -70,36 +70,3 @@ class Camera extends React.Component {
 }
 
 export default Camera
-
-const styles = StyleSheet.create({
-  cameraContainer: {
-    flex: 1,
-    flexDirection: 'column',
-    backgroundColor: 'white'
-  },
-  cameraActionsContainer: {
-    flex: 0.2,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-around',
-    backgroundColor: 'black'
-  },
-  preview: {
-    flex: 0.8,
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height,
-  },
-  captureButton: {
-    flex: 0,
-    backgroundColor: '#1FBFFF',
-    borderRadius: 5,
-    padding: 15,
-    paddingHorizontal: 20,
-    alignSelf: 'center',
-    margin: 20
-  },
-  captureText: {
-    color: 'white',
-    fontSize: 16,
-  }
-});

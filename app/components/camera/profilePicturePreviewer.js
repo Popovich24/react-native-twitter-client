@@ -2,16 +2,15 @@
 
 import React, {Component} from 'react';
 import {
-  StyleSheet,
   View,
   Text,
   Image,
   TouchableHighlight,
   ActivityIndicator,
-  Dimensions,
   TouchableOpacity,
-} from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+} from 'react-native'
+import Ionicons from 'react-native-vector-icons/Ionicons'
+import {styles} from './profilePicturePreviewer.styles.js'
 
 const ProfilePicturePreviewer = (props) => {
 
@@ -30,22 +29,3 @@ const ProfilePicturePreviewer = (props) => {
 }
 
 export default ProfilePicturePreviewer
-
-const styles = StyleSheet.create({
-  previewContainer: {
-    flex: 1,
-  },
-  previewImage: {
-    flex: 0.8,
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height,
-    resizeMode: 'contain',
-  },
-  previewActionsContainer: {
-    flex: 0.2,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-around',
-    backgroundColor: 'black'
-  },
-});
