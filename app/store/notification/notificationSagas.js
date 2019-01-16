@@ -10,17 +10,17 @@ import {
 } from './notificationActions.js'
 
 import {
-  configToggleVerifiedOnly,
-  configToggleDoNotFollow,
-  configToggleHaveDefaultInformation,
-  configToggleContainsLink,
-  configToggleTextTruncated,
+  configTurnOffVerifiedOnly,
+  configTurnOffDoNotFollow,
+  configTurnOffHaveDefaultInformation,
+  configTurnOffContainsLink,
+  configTurnOffTextTruncated,
 } from './../configuration/configurationActions.js'
 
 export const serverIP = '10.160.11.56:8080';
 
 export function* notificationAcceptVerifiedOnly(){
-  yield put(configToggleVerifiedOnly());
+  yield put(configTurnOffVerifiedOnly());
 }
 
 function* watchNotificationAcceptVerifiedOnly() {
@@ -28,7 +28,7 @@ function* watchNotificationAcceptVerifiedOnly() {
 }
 
 export function* notificationAcceptDoNotFollow(){
-  yield put(configToggleDoNotFollow());
+  yield put(configTurnOffDoNotFollow());
 }
 
 function* watchNotificationAcceptDoNotFollow() {
@@ -36,7 +36,7 @@ function* watchNotificationAcceptDoNotFollow() {
 }
 
 export function* notificationAcceptHaveDefaultInformation(){
-  yield put(configToggleHaveDefaultInformation());
+  yield put(configTurnOffHaveDefaultInformation());
 }
 
 function* watchNotificationAcceptHaveDefaultInformation() {
@@ -44,7 +44,7 @@ function* watchNotificationAcceptHaveDefaultInformation() {
 }
 
 export function* notificationAcceptContainsLink(){
-  yield put(configToggleContainsLink());
+  yield put(configTurnOffContainsLink());
 }
 
 function* watchNotificationAcceptContainsLink() {
@@ -52,7 +52,7 @@ function* watchNotificationAcceptContainsLink() {
 }
 
 export function* notificationAcceptTextTruncated(){
-  yield put(configToggleTextTruncated());
+  yield put(configTurnOffTextTruncated());
 }
 
 function* watchNotificationAcceptTextTruncated() {

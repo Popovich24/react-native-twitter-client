@@ -79,6 +79,10 @@ export class NotificationController {
     PushNotification.cancelLocalNotifications({id: id});
   }
 
+  cleanNotificationFormSystemTray = (notificationId) => {
+      PushNotification.clearLocalNotification(Number(notificationId));
+  }
+
   scheduleNotification = (message, delayInSeconds, id) => {
     PushNotification.localNotificationSchedule({
       message: message,

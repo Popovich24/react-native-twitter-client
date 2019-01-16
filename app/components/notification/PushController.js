@@ -44,7 +44,11 @@ class PushController extends React.Component {
         default:
           break;
       }
-      action.finish();
+      this.notificationController.cleanNotificationFormSystemTray(action.id);
+    } else {
+      if (action && action.action === 'Reject') {
+        this.notificationController.cleanNotificationFormSystemTray(action.id);
+      }
     }
   }
 
