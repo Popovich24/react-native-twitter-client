@@ -79,7 +79,7 @@ export class NotificationController {
     PushNotification.cancelLocalNotifications({id: id});
   }
 
-  cleanNotificationFormSystemTray = (notificationId) => {
+  cleanNotificationFromSystemTray = (notificationId) => {
       PushNotification.clearLocalNotification(Number(notificationId));
   }
 

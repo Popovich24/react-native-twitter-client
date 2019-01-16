@@ -22,7 +22,7 @@ class PushController extends React.Component {
     this.notificationController = new notificationController.NotificationController();
   }
 
-  handleActionNotification = (action) => {
+  handleOnActionNotification = (action) => {
     if (action && action.action === 'Accept') {
       switch(action.id) {
         case notificationController.longTimeSinceSilencedNonVerifiedAccountsId:
@@ -44,10 +44,10 @@ class PushController extends React.Component {
         default:
           break;
       }
-      this.notificationController.cleanNotificationFormSystemTray(action.id);
+      this.notificationController.cleanNotificationFromSystemTray(action.id);
     } else {
       if (action && action.action === 'Reject') {
-        this.notificationController.cleanNotificationFormSystemTray(action.id);
+        this.notificationController.cleanNotificationFromSystemTray(action.id);
       }
     }
   }
@@ -55,12 +55,9 @@ class PushController extends React.Component {
   handleOnNotification = (actionNotification) => {
     const {notification} = actionNotification;
     if (notification){
-      PushNotification.localNotification({
-        message: notification.body,
-        title: notification.title,
-      });
+      this.notificationController.sendLocalNotification(notification.body);
     } else {
-      this.handleActionNotification(actionNotification);
+      this.handleOnActionNotification(actionNotification);
     }
   }
 
@@ -69,11 +66,6 @@ class PushController extends React.Component {
 
     PushNotification.configure({
       onNotification: (actionNotification) => this.handleOnNotification(actionNotification),
-      onMessageReceived: function(message) {
-        PushNotification.localNotification({
-          message: message,
-        });
-      },
       popInitialNotification: true,
     });
   }
