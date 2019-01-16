@@ -11,6 +11,5 @@ export default function* appSagas() {
     postSagas(),
     trendSagas(),
     userSagas(),
-    notificationSagas(),
   ])
 }

@@ -7,12 +7,12 @@ import {connect} from 'react-redux'
 import * as notificationController from './notificationController';
 
 import {
-  notificationAcceptVerifiedOnly,
-  notificationAcceptDoNotFollow,
-  notificationAcceptHaveDefaultInformation,
-  notificationAcceptContainsLink,
-  notificationAcceptTextTruncated,
-} from '../../store/notification/notificationActions';
+  configTurnOffVerifiedOnly,
+  configTurnOffDoNotFollow,
+  configTurnOffHaveDefaultInformation,
+  configTurnOffContainsLink,
+  configTurnOffTextTruncated,
+} from '../../store/configuration/configurationActions';
 
 class PushController extends React.Component {
 
@@ -26,20 +26,19 @@ class PushController extends React.Component {
     if (action && action.action === 'Accept') {
       switch(action.id) {
         case notificationController.longTimeSinceSilencedNonVerifiedAccountsId:
-          this.props.notificationAcceptVerifiedOnly();
-          this.notificationController.tearDownSilencedVerifiedAccountsNotification();
+          this.props.configTurnOffVerifiedOnly();
           break;
         case notificationController.longTimeSinceSilencedDoNotFollowAccountsId:
-          this.props.notificationAcceptDoNotFollow();
+          this.props.configTurnOffDoNotFollow();
           break;
         case notificationController.longTimeSinceSilencedHaveDefaultProfileId:
-          this.props.notificationAcceptHaveDefaultInformation();
+          this.props.configTurnOffHaveDefaultInformation();
           break;
         case notificationController.longTimeSinceSilencedPostThatContainLinkId:
-          this.props.notificationAcceptContainsLink();
+          this.props.configTurnOffContainsLink();
           break;
         case notificationController.longTimeSinceSilencedPostThatHaveTextTruncatedId:
-          this.props.notificationAcceptTextTruncated();
+          this.props.configTurnOffTextTruncated();
           break;
         default:
           break;
@@ -111,11 +110,11 @@ function mapStateToProps(state, props) {
 }
 
 const mapDispatchToProps = {
-  notificationAcceptVerifiedOnly: () => notificationAcceptVerifiedOnly(),
-  notificationAcceptDoNotFollow: () => notificationAcceptDoNotFollow(),
-  notificationAcceptHaveDefaultInformation: () => notificationAcceptHaveDefaultInformation(),
-  notificationAcceptContainsLink: () => notificationAcceptContainsLink(),
-  notificationAcceptTextTruncated: () => notificationAcceptTextTruncated(),
+  configTurnOffVerifiedOnly: () => configTurnOffVerifiedOnly(),
+  configTurnOffDoNotFollow: () => configTurnOffDoNotFollow(),
+  configTurnOffHaveDefaultInformation: () => configTurnOffHaveDefaultInformation(),
+  configTurnOffContainsLink: () => configTurnOffContainsLink(),
+  configTurnOffTextTruncated: () => configTurnOffTextTruncated(),
 }
 
 export default connect(null, mapDispatchToProps)(PushController);
