@@ -18,7 +18,7 @@ import PostScreen from '../screens/PostScreen'
 import UserProfileScreen from '../screens/UserProfileScreen'
 import LoggedInUserProfileScreen from '../screens/LoggedInUserProfileScreen'
 import CameraScreen from '../screens/CameraScreen'
-import {tabBarOptionsStyles} from './AppNavigator.styles.js'
+import {tabBarOptionsStyles, topBarIconStyle} from './AppNavigator.styles.js'
 
 const middleware = createReactNavigationReduxMiddleware(
   'root',
@@ -111,7 +111,7 @@ const RootNavigator = createMaterialTopTabNavigator({
           iconName = "ios-notifications"
         }
       }
-      return <Ionicons name={iconName} size={horizontal ? 35 : 45} color={tintColor} />;
+      return <Ionicons name={iconName} style={topBarIconStyle} size={topBarIconStyle.fontSize} color={tintColor} />;
     },
   }),
   tabBarOptions: tabBarOptionsStyles,

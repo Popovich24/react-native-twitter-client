@@ -1,6 +1,10 @@
 import {StyleSheet} from 'react-native'
 import base from './base.styles.js'
 
+export const topBarIconStyle = {
+  fontSize: base.fontSizes.bigIcon,
+}
+
 export const tabBarOptionsStyles = {
   activeTintColor: base.colors.iconHighlight,
   inactiveTintColor: base.colors.iconSecondary,

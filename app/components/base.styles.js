@@ -45,7 +45,7 @@ const fontSizes = {
   headline: 24,
   smallIcon: 18,
   mediumIcon: 32,
-  bigIcon: 48,
+  bigIcon: 44,
 }
 
 export default {

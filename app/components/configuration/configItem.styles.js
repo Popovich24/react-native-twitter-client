@@ -13,7 +13,8 @@ export const styles = StyleSheet.create({
     color: base.colors.textPrimary,
     fontSize: base.fontSizes.normal,
   },
-  configCheckBox: {},
+  configCheckBox: {
+  },
   configTextView: {
     flex: 0.9,
   },
