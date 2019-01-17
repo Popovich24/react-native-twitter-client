@@ -1,8 +1,13 @@
 import {StyleSheet, Dimensions} from 'react-native'
+import base from '../base.styles.js'
 
 export const styles = StyleSheet.create({
   previewContainer: {
     flex: 1,
+  },
+  actionIcon: {
+    fontSize: base.fontSizes.bigIcon,
+    color: base.colors.iconPrimary,
   },
   previewImage: {
     flex: 0.8,

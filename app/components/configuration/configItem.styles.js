@@ -1,14 +1,16 @@
 import {StyleSheet} from 'react-native'
+import base from '../base.styles.js'
 
 export const styles = StyleSheet.create({
   configItem: {
     flexDirection: 'row',
     borderBottomWidth: 1,
-    borderColor: "#ccc",
-    padding: 10,
+    borderColor: base.colors.borderPrimary,
+    padding: base.spacings.S,
   },
   configText: {
-    fontSize: 17,
+    color: base.colors.textPrimary,
+    fontSize: base.fontSizes.normal,
   },
   configCheckBox: {},
   configTextView: {

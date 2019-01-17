@@ -61,8 +61,8 @@ class Camera extends React.Component {
           permissionDialogMessage={'We need your permission to use your camera phone'}
         />
         <View style={styles.cameraActionsContainer}>
-          <Ionicons name="ios-reverse-camera" onPress={this.reverseCamera} size={80} color="#1183ff"/>
-          <Ionicons name="ios-camera" onPress={this.takePicture.bind(this)} size={80} color="#1183ff"/>
+          <Ionicons name="ios-reverse-camera" onPress={this.reverseCamera} size={styles.actionIcon.fontSize} color={styles.actionIcon.color}/>
+          <Ionicons name="ios-camera" onPress={this.takePicture.bind(this)} size={styles.actionIcon.fontSize} color={styles.actionIcon.color}/>
         </View>
       </View>
     );

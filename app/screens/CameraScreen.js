@@ -20,7 +20,8 @@ import ProfilePicturePreviewer from './../components/camera/profilePicturePrevie
 
 
 import {newPictureTakenProfilePictureChange, requestProfilePictureChange, failureProfilePictureChange} from '../store/user/userActions';
-import {connect} from 'react-redux';
+import {connect} from 'react-redux'
+import {styles} from './CameraScreen.styles.js'
 
 export class CameraScreen extends Component {
 
@@ -111,10 +112,3 @@ const mapDispatchToProps = {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CameraScreen);
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#FFFF'
-  },
-});

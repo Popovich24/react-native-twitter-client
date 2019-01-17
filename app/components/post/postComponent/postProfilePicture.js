@@ -5,7 +5,8 @@ import {
   Text,
   Image,
   TouchableHighlight
-} from 'react-native';
+} from 'react-native'
+import {styles} from './postProfilePicture.styles.js'
 
 export const PostProfilePicture = (props) => {
   return (
@@ -22,18 +23,3 @@ export const PostProfilePicture = (props) => {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  profileView: {
-    flex: 0.2,
-  },
-
-  profilePic: {
-    resizeMode: 'contain',
-    alignSelf: 'center',
-    height: 50,
-    width: 50,
-    borderRadius: 25,
-  },
-
-});

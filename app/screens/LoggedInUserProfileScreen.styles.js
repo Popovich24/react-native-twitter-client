@@ -1,22 +1,17 @@
 import {StyleSheet} from 'react-native'
-import base from '../base.styles.js'
+import base from '../components/base.styles.js'
 
 export const styles = StyleSheet.create({
-  userContainer: {
+  container: {
     flex: 1,
     backgroundColor: base.colors.backgroundPrimary,
     justifyContent: 'flex-start',
     flexDirection: 'column',
   },
-  textBanner: {
-    justifyContent: 'center',
+  activityIndicatorContainer:{
+    backgroundColor: base.colors.backgroundPrimary,
     alignItems: 'center',
-    alignSelf: 'center',
-  },
-  userProfile: {
-    marginBottom: base.spacings.XS,
-  },
-  postList: {
-    marginTop: base.spacings.XS,
+    justifyContent: 'center',
+    flex: 1,
   },
 });

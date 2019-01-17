@@ -1,31 +1,33 @@
 import {StyleSheet} from 'react-native'
+import base from '../base.styles.js'
 
 export const styles = StyleSheet.create({
   trend: {
     borderBottomWidth: 1,
-    borderColor: "#ccc",
+    borderColor: base.colors.borderPrimary,
     flexDirection: 'row',
-    padding: 10,
+    padding: base.spacings.S,
 
   },
   trendText: {
-    fontSize: 17,
-    marginBottom: 5
+    fontSize: base.fontSizes.title,
+    color: base.colors.textPrimary,
+    marginBottom: base.spacings.XS
   },
   trendTextView: {
     flex: 0.9,
-    paddingLeft: 10,
+    paddingLeft: base.spacings.S,
   },
   trendNumber: {
-    fontSize: 18,
-    color: 'grey'
+    fontSize: base.fontSizes.title,
+    color: base.colors.textPrimary,
   },
   trendNumberView: {
     flex: 0.1,
-    paddingLeft: 7,
+    paddingLeft: base.spacings.S,
   },
   volumeText: {
-    fontSize: 15,
-    color: 'grey',
+    fontSize: base.fontSizes.normal,
+    color: base.colors.textPrimary,
   }
 });

@@ -57,7 +57,7 @@ class SearchForm extends React.Component {
     return (
      <View style={styles.container}>
        <View style={styles.textInputView}>
-         <Ionicons name="ios-search" size={32} color="#1183ff"/>
+         <Ionicons name="ios-search" style={styles.icon} size={styles.icon.fontSize} color={styles.icon.color}/>
          <TextInput
           underlineColorAndroid="transparent"
           style={styles.searchTextInput}
@@ -65,7 +65,7 @@ class SearchForm extends React.Component {
           value={this.props.searchValue}
          />
          { this.props.hasSearched &&
-           <Ionicons name="ios-close" style={styles.icon} onPress={this.onReset} size={32} color="#1183ff"/>
+           <Ionicons name="ios-close" style={styles.icon} onPress={this.onReset} size={styles.icon.fontSize} color={styles.icon.color}/>
          }
        </View>
        <AnimatedTouchableHighlight

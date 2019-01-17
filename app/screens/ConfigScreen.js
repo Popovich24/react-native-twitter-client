@@ -1,19 +1,20 @@
-import React from 'react';
-import { StyleSheet, Text, View, Button, CheckBox } from 'react-native';
-import PropTypes from 'prop-types';
-import {StackNavigator} from 'react-navigation';
+import React from 'react'
+import { StyleSheet, Text, View, Button, CheckBox } from 'react-native'
+import PropTypes from 'prop-types'
+import {StackNavigator} from 'react-navigation'
 import {NotificationController} from '../components/notification/notificationController'
 
-import ConfigList from './../components/configuration/ConfigList';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
+import ConfigList from './../components/configuration/ConfigList'
+import {bindActionCreators} from 'redux'
+import {connect} from 'react-redux'
 import {
   configToggleVerifiedOnly,
   configToggleDoNotFollow,
   configToggleHaveDefaultInformation,
   configToggleContainsLink,
   configToggleTextTruncated,
-} from '../store/configuration/configurationActions';
+} from '../store/configuration/configurationActions'
+import {styles} from './ConfigScreen.styles.js'
 
 export class ConfigScreen extends React.Component {
 
@@ -97,13 +98,6 @@ ConfigScreen.propTypes = {
 ConfigScreen.navigationOptions = {
 
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#FFFF'
-  },
-});
 
 function mapStateToProps(state, props) {
   return {

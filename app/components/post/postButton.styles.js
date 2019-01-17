@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import base from '../base.styles.js'
 
 export const styles = StyleSheet.create({
   newTweetButton: {
@@ -6,10 +7,10 @@ export const styles = StyleSheet.create({
     height: 60,
     elevation: 1,
     borderRadius: 30,
-    backgroundColor: '#1FBFFF',
+    backgroundColor: base.colors.iconHighlight,
     position: 'absolute',
-    bottom: 10,
-    right: 10,
+    bottom: base.spacings.S,
+    right: base.spacings.S,
     alignItems: 'center',
     justifyContent: 'center'
   },

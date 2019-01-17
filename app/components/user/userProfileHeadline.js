@@ -27,7 +27,7 @@ const UserProfileHeadline = (props) => {
         <View style={styles.noBanner}>
         </View>
       }
-      <View style={[ styles.row, styles.horizontalCentered ]}>
+      <View style={styles.row}>
         <UserProfilePicture
           onPress={handleOnProfilePicPress}
           user={props.user}

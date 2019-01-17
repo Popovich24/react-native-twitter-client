@@ -1,20 +1,21 @@
-import React from 'react';
-import { StyleSheet, Text, View, Button, Animated, Easing, ActivityIndicator } from 'react-native';
-import PropTypes from 'prop-types';
-import {StackNavigator} from 'react-navigation';
+import React from 'react'
+import { StyleSheet, Text, View, Button, Animated, Easing, ActivityIndicator } from 'react-native'
+import PropTypes from 'prop-types'
+import {StackNavigator} from 'react-navigation'
 import SearchForm from './../components/search/searchForm'
-import TrendList from './../components/trends/trendList';
+import TrendList from './../components/trends/trendList'
 import PostList from './../components/post/postList'
-import {bindActionCreators} from 'redux';
-import { connect } from 'react-redux';
+import {bindActionCreators} from 'redux'
+import { connect } from 'react-redux'
 
 import Fade from './../components/animation/fade'
 
 import {
   requestSearchForPost,
   requestSearchMorePost,
-  resetPostSearch} from '../store/post/postActions';
-import {requestTrendsLoad, resetTrends} from '../store/trend/trendActions';
+  resetPostSearch} from '../store/post/postActions'
+import {requestTrendsLoad, resetTrends} from '../store/trend/trendActions'
+import {styles} from './SearchScreen.styles.js'
 
 export class SearchScreen extends React.Component {
 
@@ -106,7 +107,6 @@ export class SearchScreen extends React.Component {
 
             <View>
               <Text style={styles.trendTitle}>Trends for you</Text>
-              <View style={styles.separator}/>
               <TrendList
                 trends={this.props.trends}
                 onItemPress={(trend) => { this.handleOnTrendPress(trend) }}
@@ -135,29 +135,6 @@ export class SearchScreen extends React.Component {
   };
 
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#FFFF'
-  },
-  activityIndicatorContainer:{
-    backgroundColor: "#fff",
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1,
-  },
-  trendTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginLeft: 10,
-    marginBottom: 15
-  },
-  separator: {
-    height: 1,
-    backgroundColor: '#dddddd'
-  },
-});
 
 const mapStateToProps = (state) => {
     return {

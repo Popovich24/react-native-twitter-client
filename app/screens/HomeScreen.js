@@ -9,6 +9,7 @@ import {NotificationController} from '../components/notification/notificationCon
 import Timeline from '../components/timeline/timeline'
 import PostButton from '../components/post/postButton'
 import NewPostModalForm from '../components/post/newPostModalForm'
+import {styles} from './HomeScreen.styles.js'
 
 export class HomeScreen extends React.Component {
 
@@ -70,13 +71,6 @@ HomeScreen.propTypes = {
 HomeScreen.navigationOptions = {
   header: null
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#FFFF'
-  },
-});
 
 function mapStateToProps(state, props) {
     return {

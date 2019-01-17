@@ -1,4 +1,5 @@
 import {StyleSheet, Dimensions} from 'react-native'
+import base from '../base.styles.js'
 
 export const styles = StyleSheet.create({
   banner:{
@@ -10,7 +11,7 @@ export const styles = StyleSheet.create({
   noBanner: {
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height / 4.5,
-    backgroundColor: 'lightblue',
+    backgroundColor: base.colors.backgroundSecondary,
   },
 
   container: {
@@ -24,12 +25,11 @@ export const styles = StyleSheet.create({
   },
 
   userNameText: {
-    fontSize: 16,
-  },
-  horizontalCentered: {
-    justifyContent: 'center'
+    fontSize: base.fontSizes.title,
+    color: base.colors.textPrimary,
   },
   row:{
+    justifyContent: 'center',
     flexDirection: 'row',
   },
 });

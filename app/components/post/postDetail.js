@@ -37,8 +37,6 @@ const postDetails = (props) => {
       <View style={styles.dateView}>
         <Text> {date} </Text>
       </View>
-      <View style={styles.separator} />
-
     </ScrollView>
   );
 };

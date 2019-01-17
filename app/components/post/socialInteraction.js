@@ -13,15 +13,15 @@ const SocialInteraction = (props) => {
   return (
     <View style={styles.socialInteractionContainer}>
       <View style={styles.socialInteractionElement}>
-        <Ionicons name="ios-heart-empty" size={32} color="grey" />
+        <Ionicons name="ios-heart-empty" size={styles.socialInteractionIcon.fontSize} color={styles.socialInteractionIcon.color} />
         <Text style={styles.socialInteractionText}>{props.favoriteCount}</Text>
       </View>
       <View style={styles.socialInteractionElement}>
-        <Ionicons name="ios-chatboxes" size={32} color="grey" />
+        <Ionicons name="ios-chatboxes" size={styles.socialInteractionIcon.fontSize} color={styles.socialInteractionIcon.color} />
         <Text style={styles.socialInteractionText}>0</Text>
       </View>
       <View style={styles.socialInteractionElement}>
-        <Ionicons name="ios-share-alt" size={32} color="grey" />
+        <Ionicons name="ios-share-alt" size={styles.socialInteractionIcon.fontSize} color={styles.socialInteractionIcon.color} />
         <Text style={styles.socialInteractionText}>{props.retweetCount}</Text>
       </View>
     </View>

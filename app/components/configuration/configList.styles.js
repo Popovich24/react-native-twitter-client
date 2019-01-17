@@ -1,21 +1,20 @@
 import {StyleSheet} from 'react-native';
+import base from '../base.styles.js'
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFF'
+    backgroundColor: base.colors.backgroundPrimary,
   },
   titleView: {
     height: 50,
-    backgroundColor: '#627B97',
-    marginTop: 1,
-    marginBottom: 3,
-    paddingLeft: 10,
+    backgroundColor: base.colors.backgroundSecondary,
+    marginBottom: base.spacings.XS,
+    paddingLeft: base.spacings.S,
     justifyContent: 'center',
   },
   titleText: {
-    color: 'white',
-    fontSize: 16,
-    fontWeight: 'bold'
+    color: base.colors.textTertiary,
+    fontSize: base.fontSizes.title,
   }
 });

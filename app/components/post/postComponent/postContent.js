@@ -5,7 +5,8 @@ import {
   Text,
   Image,
   TouchableHighlight
-} from 'react-native';
+} from 'react-native'
+import {styles} from './postContent.styles.js'
 
 export const PostContent = (props) => {
   return (
@@ -14,12 +15,3 @@ export const PostContent = (props) => {
     </Text>
   );
 }
-
-const styles = StyleSheet.create({
-
-  postContent:{
-    fontSize: 15,
-    fontWeight: "400"
-  },
-
-});

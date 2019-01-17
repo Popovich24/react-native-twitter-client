@@ -1,10 +1,11 @@
 import {StyleSheet, Dimensions} from 'react-native'
+import base from '../base.styles.js'
 
 export const styles = StyleSheet.create({
   actionsContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    margin: 10,
+    margin: base.spacings.S,
   },
   actionButton: {
     flexDirection: 'row',
@@ -12,7 +13,11 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   actionText: {
-    color: '#1183ff'
+    color: base.colors.textPrimary,
+  },
+  actionIcon: {
+    color: base.colors.iconHighlight,
+    fontSize: base.fontSizes.mediumIcon,
   },
   modalContainer: {
     flex: 0.7,
@@ -20,13 +25,12 @@ export const styles = StyleSheet.create({
   postTextInput: {
     textAlignVertical: 'top', // ANDROID-ONLY
     height: Dimensions.get('window').height/2,
-    padding: 10,
+    padding: base.spacings.S,
     flex: 1,
     justifyContent: "flex-start",
     alignItems: "flex-start",
   },
   textInputContainer: {
     flex: 1,
-    padding: 5
   }
 });

@@ -1,7 +1,11 @@
 import {StyleSheet} from 'react-native'
-import base from '../base.styles.js'
+import base from '../../base.styles.js'
 
 export const styles = StyleSheet.create({
+  profileView: {
+    flex: 0.2,
+  },
+
   profilePic: {
     resizeMode: 'contain',
     alignSelf: 'center',
@@ -9,4 +13,5 @@ export const styles = StyleSheet.create({
     width: 50,
     borderRadius: 25,
   },
+
 });

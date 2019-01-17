@@ -1,4 +1,5 @@
 import {StyleSheet, Dimensions,} from 'react-native';
+import base from '../base.styles.js'
 
 export const styles = StyleSheet.create({
   cameraContainer: {
@@ -12,6 +13,10 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-around',
     backgroundColor: 'black'
+  },
+  actionIcon: {
+    fontSize: base.fontSizes.bigIcon,
+    color: base.colors.iconPrimary,
   },
   preview: {
     flex: 0.8,

@@ -47,7 +47,7 @@ class NewPostModalForm extends Component {
 
   render = () => {
     return (
-      <View style={{marginTop: 22}}>
+      <View>
         <Modal
           animationType="slide"
           transparent={false}
@@ -56,11 +56,11 @@ class NewPostModalForm extends Component {
           <View style={styles.modalContainer}>
             <View style={styles.actionsContainer}>
               <TouchableOpacity onPress={this.handleOnSendButtonPress} style={styles.actionButton}>
-                <Ionicons name="ios-send" size={32} color="#1183ff"/>
+                <Ionicons name="ios-send" size={styles.actionIcon.fontSize} color={styles.actionIcon.color}/>
                 <Text style={styles.actionText}> Tweet </Text>
               </TouchableOpacity>
               <TouchableOpacity onPress={this.handleOnCloseButtonPress} style={styles.actionButton}>
-                <Ionicons name="ios-close" size={44} color="#1183ff"/>
+                <Ionicons name="ios-close" size={styles.actionIcon.fontSize} color={styles.actionIcon.color}/>
                 <Text style={styles.actionText}> Close </Text>
               </TouchableOpacity>
             </View>

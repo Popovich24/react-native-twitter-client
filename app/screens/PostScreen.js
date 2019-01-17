@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
-import React, {Component} from 'react';
+import React, {Component} from 'react'
 import {
   StyleSheet,
   View,
@@ -8,11 +8,12 @@ import {
   Image,
   TouchableHighlight,
   ActivityIndicator
-} from 'react-native';
+} from 'react-native'
 
 import {connect} from 'react-redux';
 import PostDetails from '../components/post/postDetail'
-import {requestPostShow} from '../store/post/postActions';
+import {requestPostShow} from '../store/post/postActions'
+import {styles} from './PostScreen.styles.js'
 
 export class PostScreen extends Component {
 
@@ -61,17 +62,3 @@ const mapDispatchToProps = {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostScreen);
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'white',
-    paddingTop: 10
-  },
-  activityIndicatorContainer:{
-    backgroundColor: "#fff",
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1,
-  },
-});

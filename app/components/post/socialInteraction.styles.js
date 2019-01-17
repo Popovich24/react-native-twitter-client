@@ -1,12 +1,13 @@
 import {StyleSheet} from 'react-native'
+import base from '../base.styles.js'
 
 export const styles = StyleSheet.create({
   socialInteractionContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingTop: 15,
-    paddingLeft: 35,
-    paddingRight: 35,
+    paddingTop: base.spacings.M,
+    paddingLeft: base.spacings.L,
+    paddingRight: base.spacings.L,
   },
 
   socialInteractionElement: {
@@ -15,8 +16,13 @@ export const styles = StyleSheet.create({
   },
 
   socialInteractionText: {
-    color: 'grey',
-    margin: 5,
-    fontSize: 15,
+    color: base.colors.textPrimary,
+    margin: base.spacings.S,
+    fontSize: base.fontSizes.normal,
+  },
+
+  socialInteractionIcon: {
+    fontSize: base.fontSizes.mediumIcon,
+    color: base.colors.iconSecondary,
   },
 });

@@ -1,4 +1,5 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native'
+import base from '../base.styles.js'
 
 export const styles = StyleSheet.create({
   row:{
@@ -12,8 +13,8 @@ export const styles = StyleSheet.create({
 
   post: {
     borderBottomWidth: 1,
-    borderColor: "#ccc",
-    padding: 10,
+    borderColor: base.colors.borderPrimary,
+    padding: base.spacings.S,
   },
 
 });

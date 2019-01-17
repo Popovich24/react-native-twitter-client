@@ -19,7 +19,6 @@ const UserProfile = (props) => {
         styles={styles.userProfile}
         navigation={props.navigation}
       />
-      <View style={styles.separator} />
       {props.data &&
         <PostList
           style={styles.postList}

@@ -1,37 +1,22 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {
   StyleSheet,
   View,
   Text,
   Image,
   TouchableHighlight
-} from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+} from 'react-native'
+import Ionicons from 'react-native-vector-icons/Ionicons'
+import {styles} from './postUserInformation.styles.js'
 
 export const PostUserInformation = (props) => {
   return (
     <View style={styles.usernameTitle}>
       <Text style={styles.profileUsername}>{props.user.name}</Text>
       {props.user.verified === true &&
-        <Ionicons name="ios-checkmark-circle" size={16} color="#1FBFFF" />
+        <Ionicons name="ios-checkmark-circle" size={styles.verifiedAccountIcon.fontSize} color={styles.verifiedAccountIcon.color} />
       }
       <Text style={styles.profileScreenName}> @{props.user.screen_name}</Text>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-
-  usernameTitle: {
-    flexDirection: 'row',
-  },
-
-  profileUsername: {
-    fontWeight: "600",
-  },
-
-  profileScreenName: {
-    color: 'grey'
-  },
-
-});

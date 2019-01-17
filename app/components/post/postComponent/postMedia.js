@@ -5,7 +5,8 @@ import {
   Text,
   Image,
   TouchableHighlight
-} from 'react-native';
+} from 'react-native'
+import {styles} from './postMedia.styles.js'
 
 export const PostMedia = (props) => {
 
@@ -32,13 +33,3 @@ export const PostMedia = (props) => {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-
-  postImage: {
-    borderRadius: 10,
-    resizeMode: 'contain',
-    height: 250
-  },
-
-});

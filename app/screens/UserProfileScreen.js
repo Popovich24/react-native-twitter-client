@@ -15,6 +15,7 @@ import {connect} from 'react-redux';
 import {requestUserProfile} from '../store/user/userActions'
 import UserProfile from './../components/user/userProfile'
 import PostList from './../components/post/postList'
+import {styles} from './UserProfileScreen.styles.js'
 
 export class UserProfileScreen extends Component {
 
@@ -78,18 +79,3 @@ const mapDispatchToProps = {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfileScreen);
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'white',
-    justifyContent: 'space-around',
-    flexDirection: 'column',
-  },
-  activityIndicatorContainer:{
-    backgroundColor: "#fff",
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1,
-  },
-});

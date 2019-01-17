@@ -18,6 +18,7 @@ import PostScreen from '../screens/PostScreen'
 import UserProfileScreen from '../screens/UserProfileScreen'
 import LoggedInUserProfileScreen from '../screens/LoggedInUserProfileScreen'
 import CameraScreen from '../screens/CameraScreen'
+import {tabBarOptionsStyles} from './AppNavigator.styles.js'
 
 const middleware = createReactNavigationReduxMiddleware(
   'root',
@@ -113,30 +114,9 @@ const RootNavigator = createMaterialTopTabNavigator({
       return <Ionicons name={iconName} size={horizontal ? 35 : 45} color={tintColor} />;
     },
   }),
-  tabBarOptions: {
-    activeTintColor: 'black',
-    inactiveTintColor: 'grey',
-    showLabel: false,
-    showIcon: 'true',
-    indicatorStyle: {
-      borderBottomColor: '#1183ff',
-      borderBottomWidth: 2,
-    },
-    labelStyle: {
-      fontSize: 0
-    },
-    iconStyle: {
-      marginTop: 0,
-      padding: 0,
-      height: 35,
-      width: 35,
-    },
-    style:{
-      padding: 0,
-      backgroundColor: 'white',
-      justifyContent: 'center',
-    }
-  },
+  tabBarOptions: tabBarOptionsStyles,
+  animationEnabled: false,
+  swipeEnabled: false,
 });
 
 const AppWithNavigationState = reduxifyNavigator(RootNavigator, 'root');
