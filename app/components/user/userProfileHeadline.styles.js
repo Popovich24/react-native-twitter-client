@@ -19,7 +19,6 @@ export const styles = StyleSheet.create({
   },
 
   userName: {
-    height: 50,
     alignSelf: 'center',
     justifyContent: 'center',
   },

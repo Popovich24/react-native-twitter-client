@@ -33,7 +33,7 @@ export const styles = StyleSheet.create({
     margin: 20
   },
   captureText: {
-    color: 'white',
-    fontSize: 16,
+    color: base.colors.textTertiary,
+    fontSize: base.fontSizes.title,
   }
 });
