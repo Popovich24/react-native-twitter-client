@@ -14,7 +14,7 @@ export const PostUserInformation = (props) => {
     <View style={styles.usernameTitle}>
       <Text style={styles.profileUsername}>{props.user.name}</Text>
       {props.user.verified === true &&
-        <Ionicons name="ios-checkmark-circle" size={styles.verifiedAccountIcon.fontSize} color={styles.verifiedAccountIcon.color} />
+        <Ionicons name="ios-checkmark-circle" style={styles.verifiedAccountIcon} size={styles.verifiedAccountIcon.fontSize} color={styles.verifiedAccountIcon.color} />
       }
       <Text style={styles.profileScreenName}> @{props.user.screen_name}</Text>
     </View>

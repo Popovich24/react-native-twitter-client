@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
   postImage: {
     borderRadius: 10,
     resizeMode: 'contain',
-    height: 250
+    height: 250,
   },
   dateView: {
     paddingTop: base.spacings.S,

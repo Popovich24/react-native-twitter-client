@@ -14,4 +14,8 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
+  newTweetIcon: {
+    fontSize: base.fontSizes.mediumIcon,
+    color: base.colors.iconTertiary,
+  }
 });

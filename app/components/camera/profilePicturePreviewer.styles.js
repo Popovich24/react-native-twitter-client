@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
   },
   actionIcon: {
     fontSize: base.fontSizes.bigIcon,
-    color: base.colors.iconPrimary,
+    color: base.colors.iconTertiary,
   },
   previewImage: {
     flex: 0.8,

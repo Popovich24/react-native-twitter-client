@@ -5,6 +5,7 @@ export const styles = StyleSheet.create({
 
   usernameTitle: {
     flexDirection: 'row',
+    alignItems: 'center',
   },
 
   profileUsername: {
@@ -17,6 +18,7 @@ export const styles = StyleSheet.create({
   },
 
   verifiedAccountIcon: {
+    padding: base.spacings.XS,
     color: base.colors.iconPrimary,
     fontSize: base.fontSizes.smallIcon,
   }

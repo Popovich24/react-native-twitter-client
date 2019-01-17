@@ -32,7 +32,7 @@ export const styles = StyleSheet.create({
   },
   searchButtonText: {
     color: base.colors.textTertiary,
-    fontSize: base.fontSizes.M,
+    fontSize: base.fontSizes.normal,
   },
   textInputView: {
     flex: 0.65,

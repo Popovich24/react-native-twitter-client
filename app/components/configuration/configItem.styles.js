@@ -7,6 +7,7 @@ export const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderColor: base.colors.borderPrimary,
     padding: base.spacings.S,
+    alignItems: 'center',
   },
   configText: {
     color: base.colors.textPrimary,
@@ -15,10 +16,8 @@ export const styles = StyleSheet.create({
   configCheckBox: {},
   configTextView: {
     flex: 0.9,
-    height: 50,
   },
   checkboxView: {
     flex: 0.1,
-    height: 50,
   }
 });
